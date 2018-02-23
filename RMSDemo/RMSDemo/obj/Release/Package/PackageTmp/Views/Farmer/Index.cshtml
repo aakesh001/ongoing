@@ -1,0 +1,156 @@
+﻿@model RMSDemo.Models.FarmerViewModel
+@{
+    ViewBag.Title = "StateVillage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+
+}
+<div class="fl fw page-main">
+    <section class="fl fw collapaseBox">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Add / Edit Farmer</span>
+        </h3>
+        <div class="fl fw section-container">
+            @using (Html.BeginForm("Index", "Farmer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <ul class="fl fw ul-form-group">
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Devices</label>
+                                <select name="Devices" id="Devices" class="fl fw frmElement">
+                                    <option value="0">Select Device</option>
+                                    @foreach (var item in Model.Devices)
+                                    {
+                                        <option value="@item.DeviceId">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Farmer Name</label>
+                                <input type="text" name="farmerName" id="farmerName" class="fl fw frmElement">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Pono</label>
+                                <input type="text" id="Pono" name="Pono" class="fl fw frmElement">
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">District</label>
+                                <input type="text" id="District" name="District" class="fl fw frmElement">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Phone</label>
+                                <input type="text" id="Phone" name="Phone" class="fl fw frmElement">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">State</label>
+                                <select name="State" id="State" class="fl fw frmElement">
+                                    <option value="0">Select State</option>
+                                    @foreach (var item in Model.States)
+                                    {
+                                        <option value="@item.Id">@item.StateName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Village</label>
+                                <select name="Village" id="Village" class="fl fw frmElement">
+                                    <option value="0">Select Village</option>
+                                    @foreach (var item in Model.Villages)
+                                    {
+                                        <option value="@item.Id">@item.VillageName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Mandal</label>
+                                <select name="Mandal" id="Mandal" class="fl fw frmElement">
+                                    <option value="0">Select Mandal</option>
+                                    @foreach (var item in Model.Mandal)
+                                    {
+                                        <option value="@item.Id">@item.MandalName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Department</label>
+                                <input type="text" id="Department" name="Department" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Lattitude</label>
+                                <input type="text" id="Lattitude" name="Lattitude" class="fl fw frmElement">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Longitude</label>
+                                <input type="text" id="Longitude" name="Longitude" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="col-xs-12 col-lg-4">
+                                <div class="fl fw input-group">
+                                    <label for="" style="color:red" class="fl fw">@ViewBag.Message</label>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="col-xs-12 col-lg-12">
+                            <div class="fl fw input-group">
+                                <input type="submit" value="Save" id="" name="register" class="fr btn">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            }
+        </div>
+    </section>
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Company User (s)</span>
+        </h3>
+        <div class="fl fw section-container">
+            <div id="UserTableContainer" class="fl fw"></div>
+        </div>
+    </section>
+</div>
+@section scripts{<!-- Validation engine style file -->
+<script src="~/Scripts/JqueryJtable.js"></script>
+<script src="~/Scripts/JqueryUIJtable.js"></script>
+<script src="~/Scripts/jtable/jquery.jtable.js"></script>
+<script src="~/Scripts/Farmer.js"></script>
+
+<script src="~/Scripts/jtable/validationEngine/jquery.validationEngine.js"></script>
+
+<script src="~/Scripts/jtable/validationEngine/jquery.validationEngine-en.js"></script>
+
+ 
+}

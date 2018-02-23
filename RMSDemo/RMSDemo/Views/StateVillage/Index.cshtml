@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "StateVillage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<div class="fl fw page-main">
+    <section class="fl fw collapaseBox">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Add / Edit State</span>
+        </h3>
+        @using (Html.BeginForm("AddState", "StateVillage", FormMethod.Post, new { role = "form" }))
+        {
+            <div class="fl fw section-container">
+                <ul class="fl fw ul-form-group">
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Name</label>
+                                <input type="text" name="stateName" class="fl fw frmElement" required>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="col-xs-12">
+                            <div class="fl fw input-group">
+                                <button type="submit" class="fr btn">Save</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        }
+        <div class="fl fw section-container">
+            <div id="StateTableContainer" class="fl fw"></div>
+        </div>
+    </section>
+
+</div>
+<div class="fl fw page-main">
+    <section class="fl fw collapaseBox">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Add / Edit Village</span>
+        </h3>
+        @using (Html.BeginForm("AddVillage", "StateVillage", FormMethod.Post, new { role = "form" }))
+        {
+            <div class="fl fw section-container">
+                <ul class="fl fw ul-form-group">
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">State</label>
+                                <select name="StateID" id="StateID" class="form-control"></select>
+                            </div>
+                             
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Name</label>
+                                <input type="text" name="VilageName" id="VilageName"class="fl fw frmElement" required>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="col-xs-12">
+                            <div class="fl fw input-group">
+                                <button type="submit" class="fr btn">Save</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        }
+
+        <div class="fl fw section-container">
+            <div id="VillageTableContainer" class="fl fw"></div>
+        </div>
+    </section>
+
+</div>
+
+<div class="fl fw page-main">
+    <section class="fl fw collapaseBox">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Add / Edit Mandal</span>
+        </h3>
+        @using (Html.BeginForm("AddMandal", "StateVillage", FormMethod.Post, new { role = "form" }))
+        {
+            <div class="fl fw section-container">
+                <ul class="fl fw ul-form-group">
+                    <li>
+                        
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">State</label>
+                                <select name="StateIDMandal" id="StateIDMandal"  class="form-control"></select>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Village</label>
+                                <select name="VillageIdMandal" id="VillageIdMandal" class="form-control"></select>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">MandalName</label>
+                                <input type="text" name="mandalName" id="mandalName" class="fl fw frmElement" required>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="col-xs-12">
+                            <div class="fl fw input-group">
+                                <button type="submit" class="fr btn">Save</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        }
+        <div class="fl fw section-container">
+            <div id="MandalTableContainer" class="fl fw"></div>
+        </div>
+    </section>
+
+</div>
+@section scripts{<!-- Validation engine style file -->
+    <!-- Validation engine script file and english localization -->
+    <script src="~/Scripts/JqueryJtable.js"></script>
+    <script src="~/Scripts/JqueryUIJtable.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.js"></script>
+    <script src="~/Scripts/StateVillage.js"></script>
+    <script src="~/Scripts/jtable/validationEngine/jquery.validationEngine.js"></script>
+    <script src="~/Scripts/jtable/validationEngine/jquery.validationEngine-en.js"></script>
+
+
+}

@@ -1,0 +1,6 @@
+D:\OnGoingProject\RMS\RMSDemo\Entities\bin\Release\Entities.dll
+D:\OnGoingProject\RMS\RMSDemo\Entities\bin\Release\Entities.pdb
+D:\OnGoingProject\RMS\RMSDemo\Entities\obj\Release\Entities.csprojResolveAssemblyReference.cache
+D:\OnGoingProject\RMS\RMSDemo\Entities\obj\Release\Entities.csproj.CoreCompileInputs.cache
+D:\OnGoingProject\RMS\RMSDemo\Entities\obj\Release\Entities.dll
+D:\OnGoingProject\RMS\RMSDemo\Entities\obj\Release\Entities.pdb

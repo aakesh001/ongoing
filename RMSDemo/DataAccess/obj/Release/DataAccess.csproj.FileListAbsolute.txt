@@ -1,0 +1,11 @@
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\DataAccess.dll
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\DataAccess.pdb
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\Entities.dll
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\bin\Release\Entities.pdb
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\obj\Release\DataAccess.csproj.CoreCompileInputs.cache
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\obj\Release\DataAccess.dll
+D:\OnGoingProject\RMS\RMSDemo\DataAccess\obj\Release\DataAccess.pdb

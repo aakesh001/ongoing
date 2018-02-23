@@ -1,0 +1,122 @@
+﻿@using RMSDemo.Utilities
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RMS</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/Scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet" />
+    <link href="~/css/styles1.min.css" rel="stylesheet" />
+    <link href="~/Scripts/jtable/validationEngine/validationEngine.jquery.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="fl fw">
+            <div class="fl fw header-upper">
+                <div class="container">
+                    <div class="fl fw tac header-upper-container">
+                        <div class="dib fw logoDetals">Solar RMS</div>
+                        <div class="dib fw brandName">Shree Sai Electronics</div>
+                        @if (UIHelper.UserSession != null)
+                        {
+                        <div class="dib fw UserDetails">
+                            <a href="/Account/Logout" style="color:white">
+                                <i class="bg-dashboard"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="fl fw header-lower">
+                <div class="container">
+                    <ul class="fl fw header-menu">
+                        <li>
+                            <a href="/Company/Dashboard">
+                                <i class="bg-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Company/LiveData">
+                                <i class="bg-live"></i>
+                                <span>Live Data</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Company/GetCompanyReports">
+                                <i class="bg-report"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                        @*<li>
+                            <a href="/">
+                                <i class="bg-live"></i>
+                                <span>Today's Online</span>
+                            </a>
+                        </li>*@
+                        @if (UIHelper.UserSession !=null && UIHelper.UserSession.RoleName.ToLowerInvariant().Equals("distributor"))
+                        {
+                        <li class="isDropdown">
+                            <a href="javascript:void(0)">
+                                <i class="bg-gear"></i>
+                                <span>Settings</span>
+                            </a>
+                            <ul class="fl fw header-submenu">
+                                <li>
+                                    <a href="/Company/Index">
+                                        <i class="bg-building"></i>
+                                        <span>Company</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/">
+                                        <i class="bg-device"></i>
+                                        <span>Device</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Account/Register">
+                                        <i class="bg-user"></i>
+                                        <span>User</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/StateVillage/Index">
+                                        <i class="bg-check"></i>
+                                        <span>State Village</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Farmer/Index">
+                                        <i class="bg-check"></i>
+                                        <span>Company Device Assign</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/Scripts/JqueryJtable.js"></script>
+    <script src="~/Scripts/JqueryUIJtable.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.js"></script>
+
+    <script src="~/Scripts/Layout.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

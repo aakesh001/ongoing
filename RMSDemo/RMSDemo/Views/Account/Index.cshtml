@@ -1,0 +1,148 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Log in";
+}
+@section PageCss{
+
+}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: "Exo 2",sans-serif, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+        font-size: 15px;
+        color: #333;
+    }
+
+    div {
+        float: left;
+        position: relative;
+        display: block;
+        min-height: 1px;
+    }
+
+    .col-xs-3 {
+        width: 25%;
+    }
+
+    .col-xs-6 {
+        width: 50%;
+    }
+
+    .wrapper {
+        text-align: center;
+        width: 100%;
+    }
+
+    .row {
+        display: inline-block;
+        text-align: left;
+        max-width: 800px;
+        width: 100%;
+        float: none;
+    }
+
+    .bFull, .form-group, .form-group label, .form-group input {
+        width: 100%;
+    }
+
+    .form-group {
+        margin: 0 0 10px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input {
+            border: 1px solid #a6a6a6;
+            height: 40px;
+            padding: 0 10px;
+            margin: 5px 0;
+        }
+
+    button {
+        background-color: #ffdd24;
+        color: #333333;
+        font: 21px "Exo 2",sans-serif;
+        padding: 14px;
+        text-transform: uppercase;
+        -moz-transition: all 200ms ease 0s;
+        -o-transition: all 200ms ease 0s;
+        -webkit-transition: all 200ms ease 0s;
+        transition: all 200ms ease 0s;
+        border: 0;
+        float: right;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #f0cb00;
+        }
+
+    .panel-primary {
+        border: 2px solid #999999;
+        margin: 50px 0 20px;
+        padding: 15px;
+    }
+
+    .panel-title {
+        border-top: 1px dashed #e10a76;
+        color: #e10a76;
+        font-size: 25px;
+        margin: 10px 0;
+        padding-top: 5px;
+        text-align: center;
+    }
+
+    .panel-heading {
+        text-align: center;
+    }
+
+    .field-validation-error {
+        color: #ff0000;
+        font-size: 12px;
+    }
+</style>
+@using (Html.BeginForm("Index", "Account", FormMethod.Post, new { role = "form" }))
+{
+    @*@Html.AntiForgeryToken()*@
+    @Html.ValidationSummary(true)
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading bFull">
+                        <img src="../Images/Logomakr.png" style="height: 51px;" alt="" />
+                        <h3 class="panel-title bFull">Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Login", "Account", new { @ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">User ID</label>
+                                @Html.TextBox("UserName", "", new { @id = "BodyContentPlaceHolder_txtName", @class = "form-control", placeholder = "Name", maxlength = "50" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                @Html.Password("Password", "", new { @id = "BodyContentPlaceHolder_txtName", @class = "form-control", placeholder = "Password", maxlength = "50" })
+                            </div>
+
+                            <button type="submit" class="btn btn-warning pull-right">Submit</button>
+                            <span style="color: red">@ViewBag.Errormessage</span>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3"></div>
+        </div>
+    </div>
+}
