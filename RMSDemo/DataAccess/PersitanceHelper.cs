@@ -1055,7 +1055,9 @@ namespace DataAccess
                     Farmer.Serial = reader["Serial"].ToString();
                     Farmer.STime = reader["Stime"].ToString();
                     Farmer.Btime = reader["Btime"].ToString();
-
+                    Farmer.StateName = reader["StateName"].ToString();
+                    Farmer.VillageName = reader["VillageName"].ToString();
+                    Farmer.MandalName = reader["MandalName"].ToString();
                     Farmers.Add(Farmer);
                 }
             }
@@ -1077,6 +1079,21 @@ namespace DataAccess
                 }
             }
             return UserIDs;
+        }
+
+        public bool DeleteFarmer(int id)
+        {
+            try
+            {
+                var Command = DataBase.GetStoredProcCommand("usp_del_farmer");
+                DataBase.AddInParameter(Command, "@id", DbType.Int32, id);
+                DataBase.ExecuteNonQuery(Command);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         #endregion Farmer

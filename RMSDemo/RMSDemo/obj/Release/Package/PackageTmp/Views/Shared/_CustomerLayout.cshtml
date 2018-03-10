@@ -21,15 +21,15 @@
                 <div class="container">
                     <div class="fl fw tac header-upper-container">
                         <div class="dib fw logoDetals">Solar RMS</div>
-                        <div class="dib fw brandName">Shree Sai Electronics</div>
                         @if (UIHelper.UserSession != null)
                         {
-                        <div class="dib fw UserDetails">
-                            <a href="/Account/Logout" style="color:white">
-                                <i class="bg-dashboard"></i>
-                                <span>Logout</span>
-                            </a>
-                        </div>
+                            <div class="dib fw brandName">@(UIHelper.UserSession.FirstName + " " + UIHelper.UserSession.FirstName)</div>
+                            <div class="dib fw UserDetails">
+                                <a href="/Account/Logout" style="color:white">
+                                    <i class="bg-dashboard"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
                         }
                     </div>
                 </div>
@@ -56,51 +56,51 @@
                             </a>
                         </li>
                         @*<li>
-                            <a href="/">
-                                <i class="bg-live"></i>
-                                <span>Today's Online</span>
-                            </a>
-                        </li>*@
-                        @if (UIHelper.UserSession !=null && UIHelper.UserSession.RoleName.ToLowerInvariant().Equals("distributor"))
+                                <a href="/">
+                                    <i class="bg-live"></i>
+                                    <span>Today's Online</span>
+                                </a>
+                            </li>*@
+                        @if (UIHelper.UserSession != null && UIHelper.UserSession.RoleName.ToLowerInvariant().Equals("distributor"))
                         {
-                        <li class="isDropdown">
-                            <a href="javascript:void(0)">
-                                <i class="bg-gear"></i>
-                                <span>Settings</span>
-                            </a>
-                            <ul class="fl fw header-submenu">
-                                <li>
-                                    <a href="/Company/Index">
-                                        <i class="bg-building"></i>
-                                        <span>Company</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/">
-                                        <i class="bg-device"></i>
-                                        <span>Device</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Account/Register">
-                                        <i class="bg-user"></i>
-                                        <span>User</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/StateVillage/Index">
-                                        <i class="bg-check"></i>
-                                        <span>State Village</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Farmer/Index">
-                                        <i class="bg-check"></i>
-                                        <span>Company Device Assign</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="isDropdown">
+                                <a href="javascript:void(0)">
+                                    <i class="bg-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+                                <ul class="fl fw header-submenu">
+                                    <li>
+                                        <a href="/Company/Index">
+                                            <i class="bg-building"></i>
+                                            <span>Company</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/">
+                                            <i class="bg-device"></i>
+                                            <span>Device</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/Register">
+                                            <i class="bg-user"></i>
+                                            <span>User</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/StateVillage/Index">
+                                            <i class="bg-check"></i>
+                                            <span>State Village</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Farmer/Index">
+                                            <i class="bg-check"></i>
+                                            <span>Company Device Assign</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         }
                     </ul>
                 </div>

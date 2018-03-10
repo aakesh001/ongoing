@@ -5,6 +5,7 @@ D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\RMSDemo.pdb
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Antlr3.Runtime.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\DataAccess.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Entities.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\EPPlus.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Microsoft.AI.Agent.Intercept.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Microsoft.AI.DependencyCollector.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -31,6 +32,7 @@ D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Microsoft.Practices.EnterpriseLibrary.
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Microsoft.Practices.ObjectBuilder.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\DataAccess.pdb
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Entities.pdb
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\EPPlus.xml
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\System.Net.Http.Formatting.xml
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\System.Web.Http.xml
@@ -53,3 +55,12 @@ D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Debug\RMSDemo.csprojResolveAssemblyRef
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Debug\RMSDemo.csproj.CoreCompileInputs.cache
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Debug\RMSDemo.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Debug\RMSDemo.pdb
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\HiQPdf.Free.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\HiQPdf.Free.xml
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\HiQPdf.dep
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Select.HtmlToPdf.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Select.HtmlToPdf.xml
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Select.Html.dep
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\itextsharp.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\itextsharp.xmlworker.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\itextsharp.xml

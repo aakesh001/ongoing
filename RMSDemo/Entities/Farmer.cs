@@ -17,6 +17,9 @@ namespace Entities
         public int StateId { get; set; }
         public int VillageId { get; set; }
         public int MadnalId { get; set; }
+        public string StateName { get; set; }
+        public string VillageName { get; set; }
+        public string MandalName { get; set; }
         public string Department { get; set; }
         public string Lattitude { get; set; }
         public string Longitude { get; set; }

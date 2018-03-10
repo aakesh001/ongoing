@@ -8,7 +8,7 @@
         defaultSorting: 'ID ASC',
         actions: {
             listAction: '/Farmer/GetFarmers',
-            deleteAction: '/Account/DeleteUser'
+            deleteAction: '/Farmer/DeleteFarmer'
         },
         fields: {
             Id: {
@@ -21,6 +21,12 @@
             FarmerName: {
                 title: 'Name',
                 edit: true,
+            },
+            Name: {
+                title: 'Device'
+            },
+            IMEI: {
+                title: 'IMEI'
             },
             DistributorFirstLastName: {
                 title: 'Distributor',
@@ -42,14 +48,14 @@
             PhoneNumber: {
                 title: 'PhoneNumber'
             },
-            StateId: {
-                title: 'StateId'
+            StateName: {
+                title: 'State'
             },
-            VillageId: {
-                title: 'VillageId'
+            VillageName: {
+                title: 'Village'
             },
-            MadnalId: {
-                title: 'MadnalId'
+            MandalName: {
+                title: 'Mandal'
             },
             Department: {
                 title: 'Department'
@@ -59,12 +65,6 @@
             },
             Longitude: {
                 title: 'Longitude'
-            },
-            Name: {
-                title: 'Device'
-            },
-            IMEI: {
-                title: 'IMEI'
             }
         }
     });

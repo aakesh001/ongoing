@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "StateVillage";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 
 }
 <div class="fl fw page-main">
@@ -41,7 +42,6 @@
                                 <input type="text" name="farmerName" id="farmerName" class="fl fw frmElement">
                             </div>
                         </div>
-                       
                     </li>
                     <li>
                         <div class="col-xs-12 col-lg-4">
@@ -98,7 +98,6 @@
                                 </select>
                             </div>
                         </div>
-                       
                     </li>
                     <li>
                         <div class="col-xs-12 col-lg-4">
@@ -161,7 +160,8 @@
         function getDevice() {
             debugger;
             var CompanyId = $("#Company").val();
-
+            $("#Device").html("");
+            $("#Device").append(($('<option></option>').val('0').html('Select Device')))
             $.ajax
                 ({
                     url: '/Farmer/GetDevice',
@@ -196,6 +196,6 @@
                 });
 
         }
-</script>
+    </script>
 
 }

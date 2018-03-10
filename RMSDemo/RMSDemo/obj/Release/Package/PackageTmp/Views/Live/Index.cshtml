@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     @*<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <link href="~/css/bootstrap-select.min.css" rel="stylesheet" />
 
 }
 
@@ -13,7 +14,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h4>Live Data</h4>
-            <div class="panel panel-default addModemForm" >
+            <div class="panel panel-default addModemForm">
                 <div class="panel-body">
                     <div class="row">
                         @using (Html.BeginForm("GetLiveData", "Live", FormMethod.Post, new { role = "form" }))
@@ -36,18 +37,17 @@
                             </div>
                             <div class="form-group col-xs-3">
                                 <label for="exampleInputEmail1">Device</label>
-                                <select name="Assigned" id="Assigned" class="form-control">
-                                    <option value="value">Select Option</option>
-                                </select>
+
+                                <select id="Assigned" class="selectpicker" data-live-search="true"></select>
                             </div>
                             @*if (UIHelper.UserSession != null && UIHelper.UserSession.Role.ToLowerInvariant().Equals("superadmin"))
                                 {
-                                    <div class="form-group col-xs-3">
-                                        <label for="exampleInputEmail1">Device (Admin)</label>
-                                        <select name="AssignedAdmin" id="AssignedAdmin" class="form-control">
-                                            <option value="value">Select Option</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group col-xs-3">
+                                <label for="exampleInputEmail1">Device (Admin)</label>
+                                <select name="AssignedAdmin" id="AssignedAdmin" class="form-control">
+                                <option value="value">Select Option</option>
+                                </select>
+                                </div>
                                 }*@
 
                             <div class="form-group col-xs-3">
@@ -151,518 +151,506 @@
 </div>
 
 @section scripts{
+    <script src="~/Scripts/bootstrap-select.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-
     <script>
-        var DeviceDetail;
-        var role ='@(UIHelper.UserSession !=null ? UIHelper.UserSession.RoleName.ToString():"")'
+    var DeviceDetail;
+    /**/
+    var role = '@(UIHelper.UserSession != null ? UIHelper.UserSession.RoleName.ToUpper().ToString() : "")'
+        /**/
         $(document).ready(function () {
-            $('#Distributor').find('option:first').attr('selected', 'selected');
-            if (role === 'SuperAdmin')
-            {
-                getDeviceforAdmin();
-            }
-
-        });
+        $('#Distributor').find('option:first').attr('selected', 'selected');
+        if (role === 'SUPERADMIN') {
+           getDeviceforAdmin();
+        }
+    });
         function getDeviceforAdmin() {
+        var distributorID = '';
+        var CompanyId = '';
 
-            var distributorID = '';
-            var CompanyId = '';
+        $.ajax
+            ({
+                url: '/AddDevice/GetRegisteredDevice',
+                type: 'POST',
+                async: false,
+                datatype: 'application/json',
+                contentType: 'application/json',
+                success: function (result) {
+                    DeviceDetail = result;
+                    $("#Assigned").html("");
+                    $("#Assigned").append($('<option></option>').val('0').html('Select Device'));
+                    $.each(result, function (i, city) {
+                        $("#Assigned").append
+                            ($('<option></option>').val(city.IMEI).html(city.Name))
+                    })
+                },
+                error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                },
+            });
 
-                $.ajax
-                    ({
-                        url: '/AddDevice/GetRegisteredDevice',
-                        type: 'POST',
-                        datatype: 'application/json',
-                        contentType: 'application/json',
-                        success: function (result) {
-                            DeviceDetail = result;
-                            $("#Assigned").html("");
-                            $("#Assigned").append($('<option></option>').val('0').html('Select Device'));
+    }
+        function getCompanyList() {
+        var distributorID = $("#Distributor").val();
+        $.ajax
+            ({
+                url: '/CompanyDevice/GetCompany',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    distID: +distributorID
+                }),
+                success: function (result) {
+                    $("#Company").html("");
+                    $("#Company").append
+                        ($('<option></option>').val('0').html('Select Company'))
+                    $.each(result, function (i, city) {
+                        $("#Company").append
+                            ($('<option></option>').val(city.Id).html(city.CompanyName))
+                    })
+                },
+                error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                },
+            });
+    }
+        function getDevice() {
+          var distributorID = $("#Distributor").val();
+        var CompanyId = $("#Company").val();
+        if (distributorID != 0) {
+            $.ajax
+                ({
+                    url: '/Live/GetAssignedDevice',
+                    type: 'POST',
+                    datatype: 'application/json',
+                    contentType: 'application/json',
+                    async: false,
+                    data: JSON.stringify({
+                        distID: distributorID,
+                        CompanyId: CompanyId
+                    }),
+                    success: function (result) {
+                        if (result.length <= 0) {
+                            $.alert({
+                                title: 'Warning!',
+                                content: 'No Device Assigned to Comapny..!',
+                            });
+                        }
+                        else {
+                            
                             $.each(result, function (i, city) {
-
                                 $("#Assigned").append
                                     ($('<option></option>').val(city.IMEI).html(city.Name))
                             })
-                        },
-                        error: function () {
-                            alert("Whooaaa! Something went wrong..")
-                        },
-                    });
-
-        }
-        function getCompanyList() {
-
-            var distributorID = $("#Distributor").val();
-            $.ajax
-                ({
-                    url: '/CompanyDevice/GetCompany',
-                    type: 'POST',
-                    datatype: 'application/json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        distID: +distributorID
-                    }),
-                    success: function (result) {
-                        $("#Company").html("");
-                        $("#Company").append
-                            ($('<option></option>').val('0').html('Select Company'))
-                        $.each(result, function (i, city) {
-                            $("#Company").append
-                                ($('<option></option>').val(city.Id).html(city.CompanyName))
-                        })
+                        }
                     },
                     error: function () {
-                        alert("Whooaaa! Something went wrong..")
+
+                        $.alert({
+                            title: 'Failed!',
+                            content: 'Whooaaa! Something went wrong..!',
+                        });
                     },
                 });
         }
-        function getDevice() {
-
-            var distributorID = $("#Distributor").val();
-            var CompanyId = $("#Company").val();
-            if (distributorID != 0) {
-                $.ajax
-                    ({
-                        url: '/Live/GetAssignedDevice',
-                        type: 'POST',
-                        datatype: 'application/json',
-                        contentType: 'application/json',
-                        data: JSON.stringify({
-                            distID: distributorID,
-                            CompanyId: CompanyId
-
-                        }),
-                        success: function (result) {
-                            if (result.length <= 0) {
-                                $.alert({
-                                    title: 'Warning!',
-                                    content: 'No Device Assigned to Comapny..!',
-                                });
-
-                            }
-                            else
-                            {
-                                $("#Assigned").html("");
-                                $("#Assigned").append
-                                $.each(result, function (i, city) {
-                                    $("#Assigned").append
-                                        ($('<option></option>').val(city.IMEI).html(city.Name))
-                                })
-                            }
-                          
-                        },
-                        error: function () {
-
-                            $.alert({
-                                title: 'Failed!',
-                                content: 'Whooaaa! Something went wrong..!',
-                            });
-                        },
-                    });
-            }
-        }
+    }
         function getLiveQueue() {
 
-            var distributorID = $("#Distributor").val();
-            if (distributorID == 0) {
-                $.alert({
-                    title: 'Alert!',
-                    content: 'Please Select Distributor!',
-                });
-                return;
-            }
-
-            var CompanyId = $("#Company").val();
-            if (CompanyId == 0) {
-                $.alert({
-                    title: 'Alert!',
-                    content: 'Please Select Company!',
-                });
-                return;
-            }
-
-            var AssigneDevice = $("#Assigned").val();
-            if (AssigneDevice == 0) {
-                $.alert({
-                    title: 'Alert!',
-                    content: 'Please Select Device!!',
-                });
-
-                return;
-            }
-            $("#sel_device").text($("#Assigned option:selected").text());
-
-            $.ajax
-                ({
-                    url: '/Live/GetLiveData',
-                    type: 'POST',
-                    datatype: 'application/json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        Distributor: distributorID,
-                        Company: CompanyId,
-                        Assigned: AssigneDevice
-                    }),
-                    success: function (result) {
-                        $("#Lattitude").text(result.lattitude);
-                        $("#Longitude").text(result.longitude);
-                        getAdressLatLong(result.lattitude, result.longitude);
-                        var milli = result.last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
-                        var d = new Date(parseInt(milli));
-                        month = '' + (d.getMonth() + 1),
-                            day = '' + d.getDate(),
-                            year = d.getFullYear();
-                        //$("#last_updated").text(d.getHours().toString() + ':' + d.getMinutes().toString() + ':' + d.getSeconds().toString());
-                        $("#last_updated").text(year + '/' + month + '/' + day + ' ' + d.getHours().toString() + ':' + d.getMinutes().toString() + ':' + d.getSeconds().toString());
-                        Create(result.frequency, result.dc_bus_voltage, result.current, result.in_power, result.output_voltage);
-                    },
-                    error: function () {
-                        alert("Whooaaa! Something went wrong..")
-                    },
-                });
-
+        var distributorID = $("#Distributor").val();
+        if (distributorID == 0) {
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Select Distributor!',
+            });
+            return;
         }
 
+        var CompanyId = $("#Company").val();
+        if (CompanyId == 0) {
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Select Company!',
+            });
+            return;
+        }
+
+        var AssigneDevice = $("#Assigned").val();
+        if (AssigneDevice == 0) {
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Select Device!!',
+            });
+
+            return;
+        }
+        $("#sel_device").text($("#Assigned option:selected").text());
+
+        $.ajax
+            ({
+                url: '/Live/GetLiveData',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    Distributor: distributorID,
+                    Company: CompanyId,
+                    Assigned: AssigneDevice
+                }),
+                success: function (result) {
+                    $("#Lattitude").text(result.lattitude);
+                    $("#Longitude").text(result.longitude);
+                    getAdressLatLong(result.lattitude, result.longitude);
+                    var milli = result.last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                    var d = new Date(parseInt(milli));
+                    month = '' + (d.getMonth() + 1),
+                        day = '' + d.getDate(),
+                        year = d.getFullYear();
+                    //$("#last_updated").text(d.getHours().toString() + ':' + d.getMinutes().toString() + ':' + d.getSeconds().toString());
+                    $("#last_updated").text(year + '/' + month + '/' + day + ' ' + d.getHours().toString() + ':' + d.getMinutes().toString() + ':' + d.getSeconds().toString());
+                    Create(result.frequency, result.dc_bus_voltage, result.current, result.in_power, result.output_voltage);
+                },
+                error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                },
+            });
+
+    }
         function getLiveQueueBulk(param) {
 
-            var distributorID = $("#Distributor").val();
-            var CompanyId = $("#Company").val();
-            var AssigneDevice = $("#Assigned").val();
+        var distributorID = $("#Distributor").val();
+        var CompanyId = $("#Company").val();
+        var AssigneDevice = $("#Assigned").val();
 
-            $.ajax
-                ({
-                    url: '/Live/GetLiveDataBulk',
-                    type: 'POST',
-                    datatype: 'application/json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        Distributor: distributorID,
-                        Company: CompanyId,
-                        Assigned: AssigneDevice
-                    }),
-                    success: function (result) {
+        $.ajax
+            ({
+                url: '/Live/GetLiveDataBulk',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    Distributor: distributorID,
+                    Company: CompanyId,
+                    Assigned: AssigneDevice
+                }),
+                success: function (result) {
 
-                        if (param == 'Output Frequency') {
-                            var outterArray = [];
-                            var innerArrayf = [];
-                            innerArrayf.push('Year', param)
-                            outterArray.push(innerArrayf);
-                            for (var i = 0; i < result.length; i++) {
-                                var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
-                                var d = new Date(parseInt(milli));
-                                var innerArray = [];
-                                innerArray.push(d.getHours().toString(), result[i].frequency);
-                                outterArray.push(innerArray);
-                            }
-                            CreateGraph(param, outterArray);
+                    if (param == 'Output Frequency') {
+                        var outterArray = [];
+                        var innerArrayf = [];
+                        innerArrayf.push('Year', param)
+                        outterArray.push(innerArrayf);
+                        for (var i = 0; i < result.length; i++) {
+                            var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                            var d = new Date(parseInt(milli));
+                            var innerArray = [];
+                            innerArray.push(d.getHours().toString(), result[i].frequency);
+                            outterArray.push(innerArray);
                         }
-                        if (param == 'DC Bus Voltage') {
-                            var outterArray = [];
-                            var innerArrayf = [];
-                            innerArrayf.push('Year', param)
-                            outterArray.push(innerArrayf);
-                            for (var i = 0; i < result.length; i++) {
-                                var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
-                                var d = new Date(parseInt(milli));
-                                var innerArray = [];
-                                innerArray.push(d.getHours().toString(), result[i].dc_bus_voltage);
-                                outterArray.push(innerArray);
-                            }
-                            CreateGraph(param, outterArray);
-                        }
-                        if (param == 'O/P Current') {
-                            var outterArray = [];
-                            var innerArrayf = [];
-                            innerArrayf.push('Year', param)
-                            outterArray.push(innerArrayf);
-                            for (var i = 0; i < result.length; i++) {
-                                var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
-                                var d = new Date(parseInt(milli));
-                                var innerArray = [];
-                                innerArray.push(d.getHours().toString(), result[i].current);
-                                outterArray.push(innerArray);
-                            }
-                            CreateGraph(param, outterArray);
-                        }
-                        if (param == 'Input Power') {
-                            var outterArray = [];
-                            var innerArrayf = [];
-                            innerArrayf.push('Year', param)
-                            outterArray.push(innerArrayf);
-                            for (var i = 0; i < result.length; i++) {
-                                var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
-                                var d = new Date(parseInt(milli));
-                                var innerArray = [];
-                                innerArray.push(d.getHours().toString(), result[i].in_power);
-                                outterArray.push(innerArray);
-                            }
-                            CreateGraph(param, outterArray);
-                        }
-                        if (param == 'O/P Voltage') {
-                            var outterArray = [];
-                            var innerArrayf = [];
-                            innerArrayf.push('Year', param)
-                            outterArray.push(innerArrayf);
-                            for (var i = 0; i < result.length; i++) {
-                                var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
-                                var d = new Date(parseInt(milli));
-                                var innerArray = [];
-                                innerArray.push(d.getHours().toString(), result[i].output_voltage);
-                                outterArray.push(innerArray);
-                            }
-                            CreateGraph(param, outterArray);
-                        }
-                    },
-                    error: function () {
-                        alert("Whooaaa! Something went wrong..")
-                    },
-                });
-
-        }
-
-        function CreateGraph(param, arr) {
-            google.charts.load('current', { 'packages': ['corechart'] });
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-                function getlabels(min, max, count) {
-                    var tempArr = [],
-                        gap = max / (count - 1);
-                    for (var i = min; i <= max; i = i + gap) {
-                        tempArr.push(i.toString())
+                        CreateGraph(param, outterArray);
                     }
-                    return tempArr;
+                    if (param == 'DC Bus Voltage') {
+                        var outterArray = [];
+                        var innerArrayf = [];
+                        innerArrayf.push('Year', param)
+                        outterArray.push(innerArrayf);
+                        for (var i = 0; i < result.length; i++) {
+                            var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                            var d = new Date(parseInt(milli));
+                            var innerArray = [];
+                            innerArray.push(d.getHours().toString(), result[i].dc_bus_voltage);
+                            outterArray.push(innerArray);
+                        }
+                        CreateGraph(param, outterArray);
+                    }
+                    if (param == 'O/P Current') {
+                        var outterArray = [];
+                        var innerArrayf = [];
+                        innerArrayf.push('Year', param)
+                        outterArray.push(innerArrayf);
+                        for (var i = 0; i < result.length; i++) {
+                            var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                            var d = new Date(parseInt(milli));
+                            var innerArray = [];
+                            innerArray.push(d.getHours().toString(), result[i].current);
+                            outterArray.push(innerArray);
+                        }
+                        CreateGraph(param, outterArray);
+                    }
+                    if (param == 'Input Power') {
+                        var outterArray = [];
+                        var innerArrayf = [];
+                        innerArrayf.push('Year', param)
+                        outterArray.push(innerArrayf);
+                        for (var i = 0; i < result.length; i++) {
+                            var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                            var d = new Date(parseInt(milli));
+                            var innerArray = [];
+                            innerArray.push(d.getHours().toString(), result[i].in_power);
+                            outterArray.push(innerArray);
+                        }
+                        CreateGraph(param, outterArray);
+                    }
+                    if (param == 'O/P Voltage') {
+                        var outterArray = [];
+                        var innerArrayf = [];
+                        innerArrayf.push('Year', param)
+                        outterArray.push(innerArrayf);
+                        for (var i = 0; i < result.length; i++) {
+                            var milli = result[i].last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                            var d = new Date(parseInt(milli));
+                            var innerArray = [];
+                            innerArray.push(d.getHours().toString(), result[i].output_voltage);
+                            outterArray.push(innerArray);
+                        }
+                        CreateGraph(param, outterArray);
+                    }
+                },
+                error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                },
+            });
+
+    }
+        function CreateGraph(param, arr) {
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            function getlabels(min, max, count) {
+                var tempArr = [],
+                    gap = max / (count - 1);
+                for (var i = min; i <= max; i = i + gap) {
+                    tempArr.push(i.toString())
                 }
+                return tempArr;
+            }
 
-                // Line Chart
-                var data = google.visualization.arrayToDataTable(arr);
+            // Line Chart
+            var data = google.visualization.arrayToDataTable(arr);
 
-                var options = {
-                    title: 'Device Performance',
-                    hAxis: { title: 'Hour', titleTextStyle: { color: '#333' } },
-                    vAxis: { minValue: 0 },
-                    pointSize: 5
+            var options = {
+                title: 'Device Performance',
+                hAxis: { title: 'Hour', titleTextStyle: { color: '#333' } },
+                vAxis: { minValue: 0 },
+                pointSize: 5
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('AllDetails'));
+            chart.draw(data, options);
+        }
+    }
+        function Create(frequency, dcvolt, curr, inpower, outvolt) {
+        $('#OutFreq').html(frequency + ' HZ');
+        $('#dcBus').html(dcvolt + ' V');
+        $('#OpCurr').html(curr + ' A');
+        $('#InPow').html(inpower + ' KW');
+        $('#OutVolt').html(outvolt + ' V');
+
+        google.charts.load('current', { 'packages': ['gauge'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            function getlabels(min, max, count) {
+                var tempArr = [],
+                    gap = max / (count - 1);
+                for (var i = min; i <= max; i = i + gap) {
+                    tempArr.push(i.toString())
+                }
+                return tempArr;
+            }
+
+            // Chart 1
+            var Chart_1_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', frequency]]);
+
+            var mTicks_1 = getlabels(0, 50, 11),
+                Chart_1_options = {
+                    width: 800, height: 240,
+                    min: 0, max: 60,
+                    redFrom: 0, redTo: 12,
+                    yellowFrom: 24, yellowTo: 36,
+                    greenFrom: 48, greenTo: 60,
+                    majorTicks: mTicks_1,
+                    minorTicks: 30
                 };
 
-                var chart = new google.visualization.AreaChart(document.getElementById('AllDetails'));
-                chart.draw(data, options);
-            }
+            var chart_1 = new google.visualization.Gauge(document.getElementById('Chart_1'));
+            chart_1.draw(Chart_1_data, Chart_1_options);
+
+            // Chart 2
+            var Chart_2_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', dcvolt]]);
+
+            var mTicks_2 = getlabels(0, 600, 6),
+                Chart_2_options = {
+                    width: 800, height: 240,
+                    min: 0, max: 600,
+                    redFrom: 0, redTo: 200,
+                    yellowFrom: 200, yellowTo: 400,
+                    greenFrom: 400, greenTo: 600,
+                    majorTicks: mTicks_2,
+                    minorTicks: 30
+                };
+
+            var Chart_2 = new google.visualization.Gauge(document.getElementById('Chart_2'));
+            Chart_2.draw(Chart_2_data, Chart_2_options);
+
+            // Chart 3
+            var Chart_3_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', curr]]);
+
+            var mTicks_3 = getlabels(0, 10, 6),
+                Chart_3_options = {
+                    width: 800, height: 240,
+                    min: 0, max: 10,
+                    redFrom: 0, redTo: 4,
+                    yellowFrom: 4, yellowTo: 6,
+                    greenFrom: 6, greenTo: 10,
+                    majorTicks: mTicks_3,
+                    minorTicks: 30
+                };
+
+            var Chart_3 = new google.visualization.Gauge(document.getElementById('Chart_3'));
+            Chart_3.draw(Chart_3_data, Chart_3_options);
+
+            // Chart 4
+            var Chart_4_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', inpower]]);
+
+            var mTicks_4 = getlabels(0, 30, 6),
+                Chart_4_options = {
+                    width: 800, height: 240,
+                    min: 0, max: 30,
+                    redFrom: 0, redTo: 6,
+                    yellowFrom: 12, yellowTo: 18,
+                    greenFrom: 24, greenTo: 30,
+                    majorTicks: mTicks_4,
+                    minorTicks: 30
+                };
+
+            var Chart_4 = new google.visualization.Gauge(document.getElementById('Chart_4'));
+            Chart_4.draw(Chart_4_data, Chart_4_options);
+
+            // Chart 5
+            var Chart_5_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', outvolt]]);
+
+            var mTicks_5 = getlabels(0, 500, 6),
+                Chart_5_options = {
+                    width: 800, height: 240,
+                    min: 0, max: 500,
+                    redFrom: 0, redTo: 100,
+                    yellowFrom: 200, yellowTo: 300,
+                    greenFrom: 400, greenTo: 500,
+                    majorTicks: mTicks_5,
+                    minorTicks: 30
+                };
+
+            var Chart_5 = new google.visualization.Gauge(document.getElementById('Chart_5'));
+            Chart_5.draw(Chart_5_data, Chart_5_options);
+
+            // Set Values Using...
+            //setInterval(function () {
+            //    Chart_1_data.setValue(0, 1, 2 + Math.round(6 * Math.random()));
+            //    chart_1.draw(Chart_1_data, Chart_1_options);
+            //}, 13000);
         }
-
-        function Create(frequency, dcvolt, curr, inpower, outvolt) {
-            $('#OutFreq').html(frequency + ' HZ');
-            $('#dcBus').html(dcvolt + ' V');
-            $('#OpCurr').html(curr + ' A');
-            $('#InPow').html(inpower + ' KW');
-            $('#OutVolt').html(outvolt + ' V');
-
-            google.charts.load('current', { 'packages': ['gauge'] });
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-                function getlabels(min, max, count) {
-                    var tempArr = [],
-                        gap = max / (count - 1);
-                    for (var i = min; i <= max; i = i + gap) {
-                        tempArr.push(i.toString())
-                    }
-                    return tempArr;
-                }
-
-                // Chart 1
-                var Chart_1_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', frequency]]);
-
-                var mTicks_1 = getlabels(0, 50, 11),
-                    Chart_1_options = {
-                        width: 800, height: 240,
-                        min: 0, max: 60,
-                        redFrom: 0, redTo: 12,
-                        yellowFrom: 24, yellowTo: 36,
-                        greenFrom: 48, greenTo: 60,
-                        majorTicks: mTicks_1,
-                        minorTicks: 30
-                    };
-
-                var chart_1 = new google.visualization.Gauge(document.getElementById('Chart_1'));
-                chart_1.draw(Chart_1_data, Chart_1_options);
-
-                // Chart 2
-                var Chart_2_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', dcvolt]]);
-
-                var mTicks_2 = getlabels(0, 600, 6),
-                    Chart_2_options = {
-                        width: 800, height: 240,
-                        min: 0, max: 600,
-                        redFrom: 0, redTo: 200,
-                        yellowFrom: 200, yellowTo: 400,
-                        greenFrom: 400, greenTo: 600,
-                        majorTicks: mTicks_2,
-                        minorTicks: 30
-                    };
-
-                var Chart_2 = new google.visualization.Gauge(document.getElementById('Chart_2'));
-                Chart_2.draw(Chart_2_data, Chart_2_options);
-
-                // Chart 3
-                var Chart_3_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', curr]]);
-
-                var mTicks_3 = getlabels(0, 10, 6),
-                    Chart_3_options = {
-                        width: 800, height: 240,
-                        min: 0, max: 10,
-                        redFrom: 0, redTo: 4,
-                        yellowFrom: 4, yellowTo: 6,
-                        greenFrom: 6, greenTo: 10,
-                        majorTicks: mTicks_3,
-                        minorTicks: 30
-                    };
-
-                var Chart_3 = new google.visualization.Gauge(document.getElementById('Chart_3'));
-                Chart_3.draw(Chart_3_data, Chart_3_options);
-
-                // Chart 4
-                var Chart_4_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', inpower]]);
-
-                var mTicks_4 = getlabels(0, 30, 6),
-                    Chart_4_options = {
-                        width: 800, height: 240,
-                        min: 0, max: 30,
-                        redFrom: 0, redTo: 6,
-                        yellowFrom: 12, yellowTo: 18,
-                        greenFrom: 24, greenTo: 30,
-                        majorTicks: mTicks_4,
-                        minorTicks: 30
-                    };
-
-                var Chart_4 = new google.visualization.Gauge(document.getElementById('Chart_4'));
-                Chart_4.draw(Chart_4_data, Chart_4_options);
-
-                // Chart 5
-                var Chart_5_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', outvolt]]);
-
-                var mTicks_5 = getlabels(0, 500, 6),
-                    Chart_5_options = {
-                        width: 800, height: 240,
-                        min: 0, max: 500,
-                        redFrom: 0, redTo: 100,
-                        yellowFrom: 200, yellowTo: 300,
-                        greenFrom: 400, greenTo: 500,
-                        majorTicks: mTicks_5,
-                        minorTicks: 30
-                    };
-
-                var Chart_5 = new google.visualization.Gauge(document.getElementById('Chart_5'));
-                Chart_5.draw(Chart_5_data, Chart_5_options);
-
-                // Set Values Using...
-                //setInterval(function () {
-                //    Chart_1_data.setValue(0, 1, 2 + Math.round(6 * Math.random()));
-                //    chart_1.draw(Chart_1_data, Chart_1_options);
-                //}, 13000);
-            }
-        }
-
+    }
         function Reboot() {
 
-            var distributorID = $("#Distributor").val();
-            var CompanyId = $("#Company").val();
-            var AssigneDevice = $("#Assigned").val();
+        var distributorID = $("#Distributor").val();
+        var CompanyId = $("#Company").val();
+        var AssigneDevice = $("#Assigned").val();
 
-            if (AssigneDevice == 0)
-            {
-                //alert("Please Select Device!");
-                $.alert({
-                    title: 'Alert!',
-                    content: 'Please Select Device!',
-                });
-                return;
-            }
-
-            $.ajax
-                ({
-                    url: '/Live/RebootDevice',
-                    type: 'POST',
-                    datatype: 'application/json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        Assigned: AssigneDevice,
-                        Reboot: true,
-                        Reset: false
-                    }),
-                    success: function (result) {
-                        //alert("Device Reboot Succesfull!");
-                        $.alert({
-                            title: 'Succesfull!',
-                            content: 'Device Reboot Succesfull!',
-                        });
-
-                    },
-                    error: function () {
-                       // alert("Device Reboot Failed!");
-                        $.alert({
-                            title: 'Failed!',
-                            content: 'Device Reboot Failed!',
-                        });
-
-                    },
-                });
-
+        if (AssigneDevice == 0) {
+            //alert("Please Select Device!");
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Select Device!',
+            });
+            return;
         }
+
+        $.ajax
+            ({
+                url: '/Live/RebootDevice',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    Assigned: AssigneDevice,
+                    Reboot: true,
+                    Reset: false
+                }),
+                success: function (result) {
+                    //alert("Device Reboot Succesfull!");
+                    $.alert({
+                        title: 'Succesfull!',
+                        content: 'Device Reboot Succesfull!',
+                    });
+
+                },
+                error: function () {
+                    // alert("Device Reboot Failed!");
+                    $.alert({
+                        title: 'Failed!',
+                        content: 'Device Reboot Failed!',
+                    });
+
+                },
+            });
+
+    }
         function Reset() {
-            var AssigneDevice = $("#Assigned").val();
-            if (AssigneDevice == 0) {
-                $.alert({
-                    title: 'Alert!',
-                    content: 'Please Select Device!',
-                });
-                return;
-            }
-
-            $.ajax
-                ({
-                    url: '/Live/RebootDevice',
-                    type: 'POST',
-                    datatype: 'application/json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        Assigned: AssigneDevice,
-                        Reboot: false,
-                        Reset: true
-                    }),
-                    success: function (result) {
-
-                        $.alert({
-                            title: 'Succesfull!',
-                            content: 'Device Reset Succesfull!',
-                        });
-
-                    },
-                    error: function () {
-                        $.alert({
-                            title: 'Failed!',
-                            content: 'Device Reset Failed!',
-                        });
-
-                    },
-                });
-
+        var AssigneDevice = $("#Assigned").val();
+        if (AssigneDevice == 0) {
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Select Device!',
+            });
+            return;
         }
 
-        function getAdressLatLong(lat,long) {
-            $.ajax
-                ({
-                    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long+'&key=AIzaSyCS-k8mDwgJEnVNeASxuzGrwfQJr7xh9xg',
-                    type: 'GET',
-                    success: function (result) {
-                        console.log(result);
-                        $("#Address").text(result.results[0].formatted_address);
-                    },
-                    error: function () {
-                        alert("Whooaaa! Something went wrong..")
-                    },
-                });
-        }
+        $.ajax
+            ({
+                url: '/Live/RebootDevice',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    Assigned: AssigneDevice,
+                    Reboot: false,
+                    Reset: true
+                }),
+                success: function (result) {
+
+                    $.alert({
+                        title: 'Succesfull!',
+                        content: 'Device Reset Succesfull!',
+                    });
+
+                },
+                error: function () {
+                    $.alert({
+                        title: 'Failed!',
+                        content: 'Device Reset Failed!',
+                    });
+
+                },
+            });
+
+    }
+
+        function getAdressLatLong(lat, long) {
+        $.ajax
+            ({
+                url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=AIzaSyCS-k8mDwgJEnVNeASxuzGrwfQJr7xh9xg',
+                type: 'GET',
+                success: function (result) {
+                    console.log(result);
+                    $("#Address").text(result.results[0].formatted_address);
+                },
+                error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                },
+            });
+    }
     </script>
 }

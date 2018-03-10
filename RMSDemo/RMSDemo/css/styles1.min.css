@@ -571,6 +571,37 @@ body {
   opacity: 1; }
 
 /*---------- buttons ---------*/
+.btncust {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-image: none;
+    white-space: nowrap;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: #FFF;
+    width: 28%;
+    border: 1px solid #4dbee9;
+    background-color: #20aee3;
+    -ms-order-radius: 5px;
+    -o-order-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-shadow: 0 2px 1px -2px #fff inset, 0 0 10px 1px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 2px 1px -2px #fff inset, 0 0 10px 1px rgba(0, 0, 0, 0.1) inset;
+    text-transform: uppercase;
+}
 .btn {
   display: inline-block;
   text-align: center;

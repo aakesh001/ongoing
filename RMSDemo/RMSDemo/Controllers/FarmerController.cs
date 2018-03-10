@@ -9,6 +9,7 @@ using Entities;
 using RMSDemo.Models;
 using System.IO;
 using System.Data;
+using OfficeOpenXml;
 
 namespace RMSDemo.Controllers
 {
@@ -76,6 +77,17 @@ namespace RMSDemo.Controllers
             return Json(Companies, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult DeleteFarmer(int Id)
+        {
+            Service Service = new Service();
+            bool ISSuccesfull = Service.DeleteFarmer(Id);
+            if (ISSuccesfull)
+                return Json(new { Result = "OK" });
+            else
+                return Json(new { Result = "ERROR" });
+        }
+
         public ActionResult ImportExcel()
         {
             return View();
@@ -85,6 +97,36 @@ namespace RMSDemo.Controllers
         [HttpPost]
         public ActionResult Importexcel1()
         {
+            if (Request != null)
+            {
+                HttpPostedFileBase file = Request.Files["UploadedFile"];
+                if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                {
+                    string fileName = file.FileName;
+                    string fileContentType = file.ContentType;
+                    byte[] fileBytes = new byte[file.ContentLength];
+                    var data = file.InputStream.Read(fileBytes, 0, Convert.ToInt32(file.ContentLength));
+                    // var usersList = new List & lt;
+                    //Users & gt;
+                    //();
+                    using (var package = new ExcelPackage(file.InputStream))
+                    {
+                        var currentSheet = package.Workbook.Worksheets;
+                        var workSheet = currentSheet.First();
+                        var noOfCol = workSheet.Dimension.End.Column;
+                        var noOfRow = workSheet.Dimension.End.Row;
+                        for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
+                        {
+                            //            var user = new Users();
+                            //            user.FirstName = workSheet.Cells[rowIterator, 1].Value.ToString();
+                            //            user.LastName = workSheet.Cells[rowIterator, 2].Value.ToString();
+                            //            usersList.Add(user);
+                        }
+                    }
+                }
+            }
+            return View("Index");
+
             if (Request.Files["FileUpload1"].ContentLength > 0)
             {
                 string extension = System.IO.Path.GetExtension(Request.Files["FileUpload1"].FileName).ToLower();
@@ -93,10 +135,10 @@ namespace RMSDemo.Controllers
 
                 string[] validFileTypes = { ".xls", ".xlsx", ".csv" };
 
-                string path1 = string.Format("{0}/{1}", Server.MapPath("~/Content/Uploads"), Request.Files["FileUpload1"].FileName);
+                string path1 = string.Format("{0}/{1}", Server.MapPath("~/Uploads/UpdloadedFile"), Request.Files["FileUpload1"].FileName);
                 if (!Directory.Exists(path1))
                 {
-                    Directory.CreateDirectory(Server.MapPath("~/Content/Uploads"));
+                    Directory.CreateDirectory(Server.MapPath("~/Uploads/UpdloadedFile"));
                 }
                 if (validFileTypes.Contains(extension))
                 {

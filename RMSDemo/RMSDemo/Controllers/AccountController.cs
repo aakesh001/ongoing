@@ -21,6 +21,7 @@ namespace RMSDemo.Controllers
         {
             Service service = new Service();
             Password = URLEncryptor.Encrypt(Password, String.Empty, String.Empty, String.Empty, 0, String.Empty, 0);
+            //var a = URLEncryptor.Decrypt("VSaOxcrDWAgnflz6CevGKQ2", String.Empty, String.Empty, String.Empty, 0, String.Empty, 0);
             RMSUser User = service.ValidateUser(UserName.ToLowerInvariant(), Password);
             if (User == null)
             {

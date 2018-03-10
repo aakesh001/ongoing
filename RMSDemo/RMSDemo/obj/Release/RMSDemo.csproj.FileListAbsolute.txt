@@ -53,3 +53,14 @@ D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Release\RMSDemo.csprojResolveAssemblyR
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Release\RMSDemo.csproj.CoreCompileInputs.cache
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Release\RMSDemo.dll
 D:\OnGoingProject\RMS\RMSDemo\RMSDemo\obj\Release\RMSDemo.pdb
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\EPPlus.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\HiQPdf.Free.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Select.HtmlToPdf.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\EPPlus.xml
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\HiQPdf.Free.xml
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Select.HtmlToPdf.xml
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\HiQPdf.dep
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\Select.Html.dep
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\itextsharp.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\itextsharp.xmlworker.dll
+D:\OnGoingProject\RMS\RMSDemo\RMSDemo\bin\itextsharp.xml

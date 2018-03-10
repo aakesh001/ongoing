@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 
 }
-<div class="fl fw page-main">
+<div class="fl fw page-main" id="Grid">
     <section class="fl fw">
         <h3 class="fl fw">
             <i class="i-user"></i>
@@ -28,13 +28,15 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-lg-4">
-                        <div class="fl fw input-group">
-                            <input type="button" value="Submit" id="GetLiveData" onclick="getLiveQueue()" name="GetLiveData" class="fr btn">
-                        </div>
-                    </div>
                 </li>
                 <li>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw"></label>
+                            <input type="button" value="Submit" id="GetLiveData" onclick="getLiveQueue()" name="GetLiveData" class=" btncust">
+                            <input type="button" value="ExportPDF" id="GetPdf" onclick="getPDF()" name="GetLiveData" class=" btncust">
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -53,16 +55,14 @@
                             <label for="" id="sel_device" class="fl fw">Choose Device</label>
                         </div>
                     </div>
-                     
                 </li>
                 <li>
                     <div class="col-xs-12 col-lg-4">
                         <div class="fl fw input-group">
                             <label for="" class="fl fw">Last Updated</label>
-                            <label for=""id="last_updated" class="fl fw"></label>
+                            <label for="" id="last_updated" class="fl fw"></label>
                         </div>
                     </div>
-                     
                 </li>
                 <li>
                     <div class="col-xs-12 col-lg-4">
@@ -96,7 +96,7 @@
                     </div>
                     <div class="col-xs-12 col-lg-4">
                         <div class="fl fw input-group">
-                            <label for="" id="OutFreq" class="fl fw">Choose Device</label>
+                            <label for="" id="OutFreq" class="fl fw"></label>
                         </div>
                     </div>
                 </li>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-xs-12 col-lg-4">
                         <div class="fl fw input-group">
-                            <label for=""id="dcBus" class="fl fw">Choose Device</label>
+                            <label for="" id="dcBus" class="fl fw"></label>
                         </div>
                     </div>
                 </li>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="col-xs-12 col-lg-4">
                         <div class="fl fw input-group">
-                            <label for="" id="OpCurr" class="fl fw">Choose Device</label>
+                            <label for="" id="OpCurr" class="fl fw"></label>
                         </div>
                     </div>
                 </li>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-xs-12 col-lg-4">
                         <div class="fl fw input-group">
-                            <label for="" id="InPow" class="fl fw">Choose Device</label>
+                            <label for="" id="InPow" class="fl fw"></label>
                         </div>
                     </div>
                 </li>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="col-xs-12 col-lg-4">
                         <div class="fl fw input-group">
-                            <label for="" id="OutVolt" class="fl fw">Choose Device</label>
+                            <label for="" id="OutVolt" class="fl fw"></label>
                         </div>
                     </div>
                 </li>
@@ -182,9 +182,23 @@
     <script>
         $(document).ready(function () {
             $('#Assigned').find('option:first').attr('selected', 'selected');
-            
 
         });
+        function getPDF() {
+            debugger
+            var AssigneDevice = $("#Assigned").val();
+            if (AssigneDevice == 0) {
+                $.alert({
+                    title: 'Alert!',
+                    content: 'Please Select Device!!',
+                });
+
+                return;
+            }
+            window.location.href = '/Company/GetPdf?DeviceID=' + AssigneDevice;
+
+        }
+
         function getLiveQueue() {
 
             var AssigneDevice = $("#Assigned").val();
@@ -198,7 +212,6 @@
             }
             console.log(AssigneDevice);
             $('#sel_device').text($("#Assigned option:selected").val());
-            
 
             $.ajax
                 ({

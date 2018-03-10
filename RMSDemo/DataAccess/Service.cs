@@ -309,6 +309,12 @@ namespace DataAccess
             return PersitanceHelper.GetFarmers(distID);
         }
 
+        public bool DeleteFarmer(int id)
+        {
+            PersitanceHelper Helper = new PersitanceHelper();
+            return Helper.DeleteFarmer(id);
+        }
+
         #endregion Farmer
 
         public int GetCompanyId(int userID)

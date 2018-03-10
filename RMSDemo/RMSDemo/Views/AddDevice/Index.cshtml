@@ -8,130 +8,147 @@
         <div class="col-xs-12">
             @using (Html.BeginForm("AddNewDevice", "AddDevice", FormMethod.Post, new { role = "form" }))
             {
-            <h4>Device</h4>
-            <div class="panel panel-default addModemForm">
-                <div class="panel-body">
-                    <fieldset>
+                <h4>Device</h4>
+                <div class="panel panel-default addModemForm">
+                    <div class="panel-body">
+                        <fieldset>
 
-                        <div class="row" role="form">
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Name", new { @id = "BodyContentPlaceHolder_Label1", @class = "control-label", @for = "BodyContentPlaceHolder_txtMid" })
-                                @Html.TextBox("Name", "", new { @id = "BodyContentPlaceHolder_txtName", @class = "form-control", placeholder = "Name", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtMid" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_rf1" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("DeviceId", new { @id = "BodyContentPlaceHolder_Label2", @class = "control-label", @for = "BodyContentPlaceHolder_txtDeviceId" })
-                                @Html.TextBox("DeviceId", "", new { @class = "form-control", placeholder = "DeviceId", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtModemName" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator1" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("IMEI No", new { @id = "BodyContentPlaceHolder_Label3", @class = "control-label", @for = "BodyContentPlaceHolder_txtIMEI" })
-                                @Html.TextBox("IMEI", "", new { @class = "form-control", placeholder = "IMEI", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            @{
+                            <div class="row" role="form">
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Name", new { @id = "BodyContentPlaceHolder_Label1", @class = "control-label", @for = "BodyContentPlaceHolder_txtMid" })
+                                    @Html.TextBox("Name", "", new { @id = "BodyContentPlaceHolder_txtName", @class = "form-control", placeholder = "Name", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtMid" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_rf1" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("DeviceId", new { @id = "BodyContentPlaceHolder_Label2", @class = "control-label", @for = "BodyContentPlaceHolder_txtDeviceId" })
+                                    @Html.TextBox("DeviceId", "", new { @class = "form-control", placeholder = "DeviceId", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtModemName" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator1" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("IMEI No", new { @id = "BodyContentPlaceHolder_Label3", @class = "control-label", @for = "BodyContentPlaceHolder_txtIMEI" })
+                                    @Html.TextBox("IMEI", "", new { @class = "form-control", placeholder = "IMEI", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                @{
                                     List<Device> DeviceModel = ViewBag.DeviceModels;
-                            }
-                            <div class="form-group col-xs-3">
-                                @Html.Label("ModelId(Device Registery)", new { @id = "BodyContentPlaceHolder_Label5", @class = "control-label", @for = "BodyContentPlaceHolder_txt(DeviceRegistery" })
-                                <select name="ModelId" id="ModelId" class="form-control">
-                                    <option value="0">Select</option>
-                                    @foreach (var item in DeviceModel)
+                                }
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("ModelId(Device Registery)", new { @id = "BodyContentPlaceHolder_Label5", @class = "control-label", @for = "BodyContentPlaceHolder_txt(DeviceRegistery" })
+                                    <select name="ModelId" id="ModelId" class="form-control">
+                                        <option value="0">Select</option>
+                                        @foreach (var item in DeviceModel)
                                         {
-                                        <option value="@item.Id">@item.Name</option>
+                                            <option value="@item.Id">@item.Name</option>
                                         }
-                                </select>
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-1">
-                                @Html.Label("Enable", new { @id = "BodyContentPlaceHolder_Label6", @class = "control-label", @for = "BodyContentPlaceHolder_txtEnable" })
-                                @Html.CheckBox("Enable", new { @class = "form-control", placeholder = "Enable", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
+                                    </select>
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-1">
+                                    @Html.Label("Enable", new { @id = "BodyContentPlaceHolder_Label6", @class = "control-label", @for = "BodyContentPlaceHolder_txtEnable" })
+                                    @Html.CheckBox("Enable", new { @class = "form-control", placeholder = "Enable", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
 
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Motor Efficiency", new { @id = "BodyContentPlaceHolder_Label7", @class = "control-label", @for = "BodyContentPlaceHolder_txtMotorEfficiency" })
-                                @Html.TextBox("MotorEfficiency", "", new { @class = "form-control", placeholder = "Motor Efficiency", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Head", new { @id = "BodyContentPlaceHolder_Label8", @class = "control-label", @for = "BodyContentPlaceHolder_txtHead" })
-                                @Html.TextBox("Head", "", new { @class = "form-control", placeholder = "Head", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Motor Power", new { @id = "BodyContentPlaceHolder_Label9", @class = "control-label", @for = "BodyContentPlaceHolder_txtMotorPower" })
-                                @Html.TextBox("MotorPower", "", new { @class = "form-control", placeholder = "Motor Power", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-2">
-                                @Html.Label("Motor Control", new { @id = "BodyContentPlaceHolder_Label10", @class = "control-label", @for = "BodyContentPlaceHolder_txtMotor_Control" })
-                                @Html.CheckBox("MotorControl", new { @class = "form-control", placeholder = "MotorControl", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Benificiary Name", new { @id = "BodyContentPlaceHolder_Label11", @class = "control-label", @for = "BodyContentPlaceHolder_txtBenificiary_Name" })
-                                @Html.TextBox("BenificiaryName", "", new { @class = "form-control", placeholder = "Benificiary Name", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Work Order No", new { @id = "BodyContentPlaceHolder_Label11", @class = "control-label", @for = "BodyContentPlaceHolder_txtBenificiary_WorkOrderNoe" })
-                                @Html.TextBox("WorkOrderNo", "", new { @class = "form-control", placeholder = "Work Order No", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Motor Efficiency", new { @id = "BodyContentPlaceHolder_Label7", @class = "control-label", @for = "BodyContentPlaceHolder_txtMotorEfficiency" })
+                                    @Html.TextBox("MotorEfficiency", "", new { @class = "form-control", placeholder = "Motor Efficiency", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Head", new { @id = "BodyContentPlaceHolder_Label8", @class = "control-label", @for = "BodyContentPlaceHolder_txtHead" })
+                                    @Html.TextBox("Head", "", new { @class = "form-control", placeholder = "Head", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Motor Power", new { @id = "BodyContentPlaceHolder_Label9", @class = "control-label", @for = "BodyContentPlaceHolder_txtMotorPower" })
+                                    @Html.TextBox("MotorPower", "", new { @class = "form-control", placeholder = "Motor Power", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-2">
+                                    @Html.Label("Motor Control", new { @id = "BodyContentPlaceHolder_Label10", @class = "control-label", @for = "BodyContentPlaceHolder_txtMotor_Control" })
+                                    @Html.CheckBox("MotorControl", new { @class = "form-control", placeholder = "MotorControl", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Benificiary Name", new { @id = "BodyContentPlaceHolder_Label11", @class = "control-label", @for = "BodyContentPlaceHolder_txtBenificiary_Name" })
+                                    @Html.TextBox("BenificiaryName", "", new { @class = "form-control", placeholder = "Benificiary Name", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Work Order No", new { @id = "BodyContentPlaceHolder_Label11", @class = "control-label", @for = "BodyContentPlaceHolder_txtBenificiary_WorkOrderNoe" })
+                                    @Html.TextBox("WorkOrderNo", "", new { @class = "form-control", placeholder = "Work Order No", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
 
-                            <div class="form-group col-xs-3">
-                                @Html.Label("District", new { @id = "BodyContentPlaceHolder_Label13", @class = "control-label", @for = "BodyContentPlaceHolder_txtDistrict" })
-                                @Html.TextBox("District", "", new { @class = "form-control", placeholder = "District", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Phone", new { @id = "BodyContentPlaceHolder_Label14", @class = "control-label", @for = "BodyContentPlaceHolder_txtPhone" })
-                                @Html.TextBox("Phone", "", new { @class = "form-control", placeholder = "District", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("VFD", new { @id = "BodyContentPlaceHolder_Label15", @class = "control-label", @for = "BodyContentPlaceHolder_txtVFD" })
-                                @Html.TextBox("VFD", "", new { @class = "form-control", placeholder = "VFD", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Interval", new { @id = "BodyContentPlaceHolder_Label17", @class = "control-label", @for = "BodyContentPlaceHolder_txtInterval" })
-                                @Html.TextBox("Interval", "", new { @class = "form-control", placeholder = "Interval", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-3">
-                                @Html.Label("Address", new { @id = "BodyContentPlaceHolder_Label16", @class = "control-label", @for = "BodyContentPlaceHolder_txtAddress" })
-                                @Html.TextArea("Address", "", new { @class = "form-control", placeholder = "Address", maxlength = "50" })
-                                <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
-                            </div>
-                            <div class="form-group col-xs-11">
-                                <input type="submit" name="ctl00$BodyContentPlaceHolder$btnSave" value="AddDevice" onclick="" id="BodyContentPlaceHolder_btnSave" class="btn btn-primary btn-md">
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("District", new { @id = "BodyContentPlaceHolder_Label13", @class = "control-label", @for = "BodyContentPlaceHolder_txtDistrict" })
+                                    @Html.TextBox("District", "", new { @class = "form-control", placeholder = "District", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Phone", new { @id = "BodyContentPlaceHolder_Label14", @class = "control-label", @for = "BodyContentPlaceHolder_txtPhone" })
+                                    @Html.TextBox("Phone", "", new { @class = "form-control", placeholder = "District", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("VFD", new { @id = "BodyContentPlaceHolder_Label15", @class = "control-label", @for = "BodyContentPlaceHolder_txtVFD" })
+                                    @Html.TextBox("VFD", "", new { @class = "form-control", placeholder = "VFD", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Interval", new { @id = "BodyContentPlaceHolder_Label17", @class = "control-label", @for = "BodyContentPlaceHolder_txtInterval" })
+                                    @Html.TextBox("Interval", "", new { @class = "form-control", placeholder = "Interval", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    @Html.Label("Address", new { @id = "BodyContentPlaceHolder_Label16", @class = "control-label", @for = "BodyContentPlaceHolder_txtAddress" })
+                                    @Html.TextArea("Address", "", new { @class = "form-control", placeholder = "Address", maxlength = "50" })
+                                    <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                </div>
+                                <div class="form-group col-xs-11">
+                                    <input type="submit" name="ctl00$BodyContentPlaceHolder$btnSave" value="AddDevice" onclick="" id="BodyContentPlaceHolder_btnSave" class="btn btn-primary btn-md">
 
-                                <input type="button" name="ctl00$BodyContentPlaceHolder$btnSave" value="Export" onclick="" id="export" class="btn btn-primary btn-md">
-                                <input type="button" name="ctl00$BodyContentPlaceHolder$btnSave" value="PDF" onclick="" id="exportpdf" class="btn btn-primary btn-md">
+                                    <input type="button" name="ctl00$BodyContentPlaceHolder$btnSave" value="Export" onclick="" id="export" class="btn btn-primary btn-md">
+                                    <input type="button" name="ctl00$BodyContentPlaceHolder$btnSave" value="PDF" onclick="" id="exportpdf" class="btn btn-primary btn-md">
+                                </div>
                             </div>
-                        </div>
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>
-            </div>
-                                    }
+            }
         </div>
         <div class="col-xs-12 jqGridPager">
-            <table id="grid" class="table"></table>
-            <div id="jqGridPager"></div>
+            <div class="row" >
+                <div class="form-group ">
+                    <label for="globalSearchText">Global search in grid for:&nbsp;</label>
+                    <input id="globalSearchText" class="form-control" type="text">&nbsp;
+                    <button id="globalSearch" type="button" class=" ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="Search">
+                        <span class="ui-button-icon-primary ui-icon ui-icon-search">
+                        </span><span class="ui-button-text">Search</span>
+                    </button>
+                </div>
+                </div>
+                <table id="grid" class="table"></table>
+                <div id="jqGridPager"></div>
+            </div>
         </div>
-    </div>
 </div>
 
 @section scripts{
 
     <script src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="~/Scripts/trirand/i18n/grid.locale-en.js"></script>
     <script src="~/Scripts/trirand/src/jquery.jqGrid.js"></script>
     <script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.26/build/pdfmake.min.js">	</script>
+    <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.26/build/pdfmake.min.js"></script>
     <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.26/build/vfs_fonts.js"></script>
+    <script type="text/javascript">
+        //$.jgrid.no_legacy_api = true;
+        $.jgrid.useJSON = true;
+    </script>
+
+    <script type="text/javascript" src="http://www.ok-soft-gmbh.com/jqGrid/jquery.highlight-4.js"></script>
     <script>
         //function getDeviceModel() {
         //    var locationList = "<option value>Select</option>";
@@ -208,13 +225,12 @@
 
                 data: result,
                 colModel: [
-                    { name: 'Id', label: 'ID', key: true, editable: true, editoptions: { readonly: "readonly" } },
-                    { name: 'Name', label: 'Name', editable: true },
+                    { name: 'Id', label: 'ID', key: true, width: 100, editable: true, editoptions: { readonly: "readonly" } },
+                    { name: 'Name', label: 'Name', editable: true, width: 250 },
                     { name: 'DeviceId', label: 'DeviceId', editable: true },
                     { name: 'IMEI', label: 'IMEI', editable: true },
                     {
-                        name: 'RegisteredDeviceId', label: 'RegisteredDeviceId', editable: true, edittype: 'select', formatter: 'select',
-                        editoption: { value: TextDEvice }
+                        name: 'RegisteredDeviceId', label: 'RegisteredDeviceId', editable: true
                     },
 
                     { name: 'Enabled', label: 'Enabled', editable: true },
@@ -244,16 +260,18 @@
                 width: '1000',
                 height: 600,
                 loadonce: true,
-                rowNum: 5,
+                rowNum: 50,
                 viewrecords: true,
                 rownumbers: true,
                 rowList: [5, 10, 20, 50],
                 sortorder: 'asc',
-                pager: "#jqGridPager",
+                gridview: true,
+                pager: '#jqGridPager',
                 editurl: '/AddDevice/UpdateRegisteredDevice'
 
 
             });
+
             $('#grid').jqGrid('navGrid', '#jqGridPager',
                 { edit: false, add: false, del: true, search: false }, {}, {}, { url: '/AddDevice/DeleteRegsiteredDevice' }
             );
@@ -336,9 +354,49 @@
                         doc.styles.tableBody.fontSize = 8;
                         doc.styles.tableBody.fontSize = 8;
                         doc.width = '1000';
-                        
+
                     }
                 })
+            });
+
+
+
+            $("#globalSearchText").keypress(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                if (key === $.ui.keyCode.ENTER) { // 13
+                    $("#globalSearch").click();
+                }
+            });
+            $("#globalSearch").button({
+
+                icons: { primary: "ui-icon-search" },
+                text: false
+            }).click(function () {
+               
+                var postData = $("#grid").jqGrid("getGridParam", "postData"),
+                    colModel = $("#grid").jqGrid("getGridParam", "colModel"),
+                    rules = [],
+                    searchText = $("#globalSearchText").val(),
+                    l = colModel.length,
+                    i,
+                    cm;
+                for (i = 0; i < l; i++) {
+                    cm = colModel[i];
+                    if (cm.search !== false && (cm.stype === undefined || cm.stype === "text")) {
+                        rules.push({
+                            field: cm.name,
+                            op: "cn",
+                            data: searchText
+                        });
+                    }
+                }
+                postData.filters = JSON.stringify({
+                    groupOp: "OR",
+                    rules: rules
+                });
+                $("#grid").jqGrid("setGridParam", { search: true });
+                $("#grid").trigger("reloadGrid", [{ page: 1, current: true }]);
+                return false;
             });
         });
     </script>

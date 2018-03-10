@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using RMSDemo.Utilities
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,7 +23,22 @@
                 @Html.ActionLink("RMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
+                @*<ul class="nav navbar-nav">
+                    <li>
+                        @if (UIHelper.UserSession != null)
+                        {
+                            <div class="dib fw brandName">@(UIHelper.UserSession.FirstName + " " + UIHelper.UserSession.FirstName)</div>
+                            <div class="dib fw UserDetails">
+                                <a href="/Account/Logout" style="color:white">
+                                    <i class="bg-dashboard"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        }
+                    </li>
+
+
+                </ul>*@
             </div>
         </div>
     </div>

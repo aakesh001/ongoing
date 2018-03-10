@@ -12,7 +12,7 @@ namespace RMSDemo.Utilities
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            DateTime date1 = new DateTime(2018, 2, 25);
+            DateTime date1 = new DateTime(2018, 3, 15);
             if (DateTime.Now < date1)
             {
                 HttpContext ctx = HttpContext.Current;

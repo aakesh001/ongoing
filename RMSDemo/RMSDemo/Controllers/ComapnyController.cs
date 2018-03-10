@@ -1,16 +1,19 @@
 ﻿using DataAccess;
 using Entities;
 using RMSDemo.Utilities;
+using SelectPdf;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace RMSDemo.Controllers
 {
-    [LoginCheck]
+    //[LoginCheck]
     public class CompanyController : BaseController
     {
         // GET: Comapny
@@ -129,6 +132,50 @@ namespace RMSDemo.Controllers
             }
             catch (Exception ex)
             {
+                return View(new List<RegisteredDevice>());
+            }
+        }
+
+        [HttpGet]
+        public ActionResult GetPdf(string DeviceID)
+        {
+            var a = UIHelper.UserSession;
+            var converter = new HtmlToPdf();
+            converter.Options.MinPageLoadTime = 20;
+
+            // set the page timeout
+            converter.Options.MaxPageLoadTime = 100;
+            //  var doc = converter.ConvertUrl((Request.IsSecureConnection ? "http://" : "http://") + Request.Url.Authority + (Request.ApplicationPath == "/" ? Request.ApplicationPath : Request.ApplicationPath + "/") +
+            //"/Company/LiveDataPDF?id=" + DeviceID + "&userID=" + UIHelper.UserSession.Id);
+            string URL = ConfigurationManager.AppSettings["PDFUrl"] + "/Company/LiveDataPDF?Devid=" + DeviceID + "&userID=" + UIHelper.UserSession.Id;
+            var doc = converter.ConvertUrl(URL);
+            doc.Save(System.Web.HttpContext.Current.Response, true, "LiveData.pdf");
+            doc.Close();
+
+            return null;
+        }
+
+        public ActionResult LiveDataPDF(int userID, string Devid)
+        {
+            var Path = AppDomain.CurrentDomain.BaseDirectory + "ErrorLog";
+            var FilePath = Path + "\\error.txt";
+            System.IO.Directory.CreateDirectory(Path);
+            try
+            {
+                var b = "id-" + Devid + " " + "UserID- " + userID.ToString();
+                var Devices = new List<RegisteredDevice>();
+                Service Service = new Service();
+                Devices = Service.GetAssignedDevice(userID, 0).FindAll(f => f.IMEI.Equals(Devid));
+
+                var d = "ListCount : " + Devices.Count;
+                string[] lines = { b, d };
+
+                System.IO.File.WriteAllLines(FilePath, lines);
+                return View(Devices);
+            }
+            catch (Exception ex)
+            {
+                System.IO.File.AppendAllText(FilePath, ex.Message);
                 return View(new List<RegisteredDevice>());
             }
         }
