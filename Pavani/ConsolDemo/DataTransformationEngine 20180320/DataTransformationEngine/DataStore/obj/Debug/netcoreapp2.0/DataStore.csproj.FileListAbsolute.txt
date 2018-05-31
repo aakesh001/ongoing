@@ -1,0 +1,23 @@
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\DataStore.deps.json
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\DataStore.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\DataStore.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.AssemblyInfo.cs
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\AppConfigurations.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.csproj.CopyComplete
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\DataStore.deps.json
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\DataStore.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\DataStore.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\AppConfigurations.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\bin\Debug\netcoreapp2.0\AppConfigurations.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.csprojResolveAssemblyReference.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.csproj.CoreCompileInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.AssemblyInfoInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.AssemblyInfo.cs
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataStore\obj\Debug\netcoreapp2.0\DataStore.pdb

@@ -1,0 +1,27 @@
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\bin\Debug\netstandard2.0\AppConfigurations.deps.json
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\bin\Debug\netstandard2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\bin\Debug\netstandard2.0\AppConfigurations.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\obj\Debug\netstandard2.0\AppConfigurations.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\obj\Debug\netstandard2.0\AppConfigurations.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\obj\Debug\netstandard2.0\AppConfigurations.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\obj\Debug\netstandard2.0\AppConfigurations.AssemblyInfo.cs
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\obj\Debug\netstandard2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ClassLibrary1\obj\Debug\netstandard2.0\AppConfigurations.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\bin\Debug\netstandard2.0\AppConfigurations.deps.json
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\bin\Debug\netstandard2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\bin\Debug\netstandard2.0\AppConfigurations.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.AssemblyInfo.cs
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\bin\Debug\netstandard2.0\AppConfigurations.deps.json
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\bin\Debug\netstandard2.0\AppConfigurations.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\bin\Debug\netstandard2.0\AppConfigurations.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.csprojResolveAssemblyReference.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.csproj.CoreCompileInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.AssemblyInfoInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.AssemblyInfo.cs
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\AppConfigurations\obj\Debug\netstandard2.0\AppConfigurations.pdb

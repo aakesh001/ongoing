@@ -1,0 +1,16 @@
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\ConsoleApp1.deps.json
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\ConsoleApp1.runtimeconfig.json
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\ConsoleApp1.dll
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\ConsoleApp1.pdb
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.AssemblyInfo.cs
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.csproj.CopyComplete
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.dll
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\obj\Debug\netcoreapp2.0\ConsoleApp1.pdb
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\DataTransformationEngine.dll
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\DataUtilities.dll
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\DataUtilities.pdb
+C:\Users\venug\source\Projects\ClassLibrary1\ConsoleApp1\bin\Debug\netcoreapp2.0\DataTransformationEngine.pdb

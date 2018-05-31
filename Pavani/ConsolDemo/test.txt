@@ -1,0 +1,5 @@
+First Name|Last Name|DOB|Gender Code
+Anil|Venugopal|04/08/1981|M
+Roger|Federer|08/08/1981|M
+Margaret|Thatcher|10/13/1925|F
+|Unknown||

@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsDemo", "AzureFunctionsDemo\AzureFunctionsDemo.csproj", "{C281ECBE-F599-4068-96AD-6403D97DF294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsDemo", "AzureFunctionsDemo\AzureFunctionsDemo.csproj", "{C281ECBE-F599-4068-96AD-6403D97DF294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Util", "Data.Util\Data.Util.csproj", "{886B381B-5DCE-44B4-9A21-77F129CDAA70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Interoperability", "Data.Interoperability\Data.Interoperability.csproj", "{E28BF2CC-6A4D-4CD0-8A51-1A07300C3FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Container", "Data.Container\Data.Container.csproj", "{0DD9879E-CC8E-425F-8C3C-3A1229390257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessContainerDemo", "ProcessContainerDemo\ProcessContainerDemo.csproj", "{77C72CB9-9360-4E45-A613-8397E61E4FDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{C281ECBE-F599-4068-96AD-6403D97DF294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C281ECBE-F599-4068-96AD-6403D97DF294}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C281ECBE-F599-4068-96AD-6403D97DF294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886B381B-5DCE-44B4-9A21-77F129CDAA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886B381B-5DCE-44B4-9A21-77F129CDAA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886B381B-5DCE-44B4-9A21-77F129CDAA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886B381B-5DCE-44B4-9A21-77F129CDAA70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E28BF2CC-6A4D-4CD0-8A51-1A07300C3FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E28BF2CC-6A4D-4CD0-8A51-1A07300C3FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E28BF2CC-6A4D-4CD0-8A51-1A07300C3FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E28BF2CC-6A4D-4CD0-8A51-1A07300C3FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD9879E-CC8E-425F-8C3C-3A1229390257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD9879E-CC8E-425F-8C3C-3A1229390257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD9879E-CC8E-425F-8C3C-3A1229390257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD9879E-CC8E-425F-8C3C-3A1229390257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C72CB9-9360-4E45-A613-8397E61E4FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C72CB9-9360-4E45-A613-8397E61E4FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C72CB9-9360-4E45-A613-8397E61E4FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C72CB9-9360-4E45-A613-8397E61E4FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

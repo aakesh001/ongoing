@@ -1,8 +1,11 @@
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=pavanistorage;AccountKey=UbWQqt0V7NLjwE2Q1LcmgpWXUfpbCpBF4T/4nV8SER0hJE78sS/3M/62TMK02keoFeWRxMaWcPdNyIB7cPP++g==;EndpointSuffix=core.windows.net",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=pavanifucntion;AccountKey=N/aubkngXh0U7bFRGo1lUK7AVBnG7DKwquSzNwSZMv6QBss1D596B9yrCGIYNoP2JtRmJQkYeVX60fWVC6TP9A==;EndpointSuffix=core.windows.net",
     "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
     "SQLCON": "Server=tcp:usaathubdbserver.database.windows.net,1433;Initial Catalog =UsatHubDB;Persist Security Info = False; User ID = {usathub}; Password ={Isango_01}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"
+  },
+  "Host": {
+    "LocalHttpPort": 7073
   }
 }

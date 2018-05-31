@@ -1,0 +1,32 @@
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\netcoreapp2.0\DataUtilities.deps.json
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\netcoreapp2.0\DataUtilities.dll
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\netcoreapp2.0\DataUtilities.pdb
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\netcoreapp2.0\DataUtilities.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\netcoreapp2.0\DataUtilities.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\netcoreapp2.0\DataUtilities.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\netcoreapp2.0\DataUtilities.AssemblyInfo.cs
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\netcoreapp2.0\DataUtilities.dll
+C:\Users\venug\source\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\netcoreapp2.0\DataUtilities.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\DataUtilities.deps.json
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\DataUtilities.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\DataUtilities.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.AssemblyInfo.cs
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\AppConfigurations.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.csproj.CopyComplete
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\DataUtilities.deps.json
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\DataUtilities.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\DataUtilities.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\AppConfigurations.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\bin\Debug\netcoreapp2.0\AppConfigurations.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.csprojResolveAssemblyReference.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.csproj.CoreCompileInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.AssemblyInfoInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.AssemblyInfo.cs
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\DataUtilities\obj\Debug\netcoreapp2.0\DataUtilities.pdb

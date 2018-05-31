@@ -1,0 +1,35 @@
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.AssemblyInfo.cs
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.deps.json
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.runtimeconfig.json
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.runtimeconfig.dev.json
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataStore.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataUtilities.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataStore.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataUtilities.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.csproj.CopyComplete
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.pdb
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\AppConfigurations.dll
+C:\Users\venug\source\Projects\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\AppConfigurations.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.deps.json
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.runtimeconfig.json
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.runtimeconfig.dev.json
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\ConsoleApp.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\AppConfigurations.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataStore.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataUtilities.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\AppConfigurations.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataStore.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\bin\Debug\netcoreapp2.0\DataUtilities.pdb
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.csprojResolveAssemblyReference.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.csproj.CoreCompileInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.AssemblyInfoInputs.cache
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.AssemblyInfo.cs
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.dll
+D:\Felcon\Pavani\ConsolDemo\DataTransformationEngine 20180320\DataTransformationEngine\ConsoleApp\obj\Debug\netcoreapp2.0\ConsoleApp.pdb

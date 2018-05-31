@@ -1,0 +1,9 @@
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\obj\Debug\netcoreapp2.0\DataTransformationEngine.csprojResolveAssemblyReference.cache
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\obj\Debug\netcoreapp2.0\DataTransformationEngine.csproj.CoreCompileInputs.cache
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\obj\Debug\netcoreapp2.0\DataTransformationEngine.AssemblyInfoInputs.cache
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\obj\Debug\netcoreapp2.0\DataTransformationEngine.AssemblyInfo.cs
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\bin\Debug\netcoreapp2.0\DataTransformationEngine.deps.json
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\bin\Debug\netcoreapp2.0\DataTransformationEngine.dll
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\bin\Debug\netcoreapp2.0\DataTransformationEngine.pdb
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\obj\Debug\netcoreapp2.0\DataTransformationEngine.dll
+C:\Users\venug\source\Projects\ClassLibrary1\DataTransformationEngine\obj\Debug\netcoreapp2.0\DataTransformationEngine.pdb

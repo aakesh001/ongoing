@@ -2,119 +2,75 @@ using System;
 using System.IO;
 using System.Xml;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-
 using System.Data;
+using System.Collections.Generic;
+using System.Text;
+using CsvHelper;
+using Data.Util;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Configuration;
+using Data.Interoperability;
+using Data.Container;
 
 namespace AzureFunctionsDemo
 {
     public static class QueueTriggerFunction
     {
-        private const string Conn = "Server=tcp:usaathubdbserver.database.windows.net,1433;Initial Catalog =UsatHubDB;Persist Security Info = False; User ID = usathub; Password =Isango_01; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30";
+        private const string FilePath = @"D:\Felcon\Pavani\MapDemo2.json";
+        private const string Delimiter = "|";
+        private const string FileExtension = "XML";//we can also get this by file name
 
         [FunctionName("QueueTriggerFunction")]
-        public static void WriteLog([BlobTrigger("pavaniblog2/{name}")] string logMessage, string name, TextWriter logger)
+        public static void WriteLog([BlobTrigger("pavaniblog2/{name}.{ext}")] string logMessage, string name, string ext, TextWriter logger)
         {
-            string XMLContent = string.Empty;
-            bool Result = IsValidXmlString(logMessage);
-            XMLContent = logMessage.Replace(System.Environment.NewLine, String.Empty);
-            XMLContent = XMLContent.Replace(@"\", String.Empty);
-            if (!Result)
-            {
-                XMLContent = RemoveInvalidXmlChars(logMessage);
-            }
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(XMLContent);
-            SaveDataInXML(doc);
+            var XmlHelper = DocumenetFactory.GetDocument(FileExtension.ToLowerInvariant(), FilePath, logMessage, Delimiter);
+
+            LookupTableSet lookupTables = new LookupTableSet();
+
+            lookupTables.SetLookupTables<string>(XmlHelper.ConvertDataToString());
+
+            XmlDocument configRulesXML = new XmlDocument();
+            configRulesXML.LoadXml(XmlHelper.ConvertDataToString());
+
+            MapSet maps = new MapSet();
+            maps.SetMappingRules(configRulesXML);
+
+            lookupTables.SetLookupTables(configRulesXML);
+
+            var DocumentHelper = DocumenetFactory.GetDocument(ext.ToUpperInvariant(), FilePath, logMessage, Delimiter);
+
+            var SourceDataTable = DocumentHelper.ConvertStringToDataTable();
+            DataObject DataContainer = new DataObject(SourceDataTable);
+            DataContainer.Map(maps, lookupTables);
+            var TargetData = DocumentHelper.ConvertDataToString();
+
+            WriteToBlob(TargetData, name);
         }
 
-        /// <summary>
-        /// Remove Characters like \n and \r
-        /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        private static string RemoveInvalidXmlChars(string text)
+        private static void WriteToBlob(string delimtedText, string fileName)
         {
-            var validXmlChars = text.Where(ch => XmlConvert.IsXmlChar(ch)).ToArray();
-            return new string(validXmlChars);
-        }
+            //StorageConnectionString string specified in configuration file
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["AzureWebJobsStorage"]);
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-        /// <summary>
-        /// MEthod to chech is XML in ProperFormatted
-        /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        private static bool IsValidXmlString(string text)
-        {
-            try
-            {
-                XmlConvert.VerifyXmlChars(text);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+            // Retrieve a reference to a container.
+            //specified container name
+            CloudBlobContainer container = blobClient.GetContainerReference("pavanitarget");
+            // Create the container if it doesn't already exist.
+            container.CreateIfNotExists();
+            container.SetPermissions(
+            new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-        /// <summary>
-        //Extract Data from XML
-        /// </summary>
-        /// <param name="xml"></param>
-        private static void SaveDataInXML(XmlDocument xml)
-        {
-            foreach (XmlNode item in xml.GetElementsByTagName("note"))
-            {
-                string To = item.SelectSingleNode("to").InnerText;
-                string From = item.SelectSingleNode("from").InnerText;
-                string Heading = item.SelectSingleNode("heading").InnerText;
-                string Body = item.SelectSingleNode("body").InnerText;
+            var currentDate = DateTime.Now;
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(fileName + "_" + currentDate.ToString("MMddyyyyhhmmssfff"));
+            byte[] ByteArray = Encoding.UTF8.GetBytes(delimtedText);
+            MemoryStream stream = new MemoryStream(ByteArray);
+            StreamReader reader = new StreamReader(stream);
 
-                bool SuccessFull = SaveInSql(To, From, Heading, Body);
-                if (!SuccessFull)
-                {
-                    //we can this field to show user which field is incorrect
-                }
-            }
-        }
-
-        /// <summary>
-        /// Save Data in SQL or XML
-        /// </summary>
-        /// <param name="to"></param>
-        /// <param name="from"></param>
-        /// <param name="heading"></param>
-        /// <param name="body"></param>
-        /// <returns></returns>
-        private static bool SaveInSql(string to, string from, string heading, string body)
-        {
-            bool successful = false;
-            try
-            {
-                using (SqlConnection con = new SqlConnection(Conn))
-                {
-                    using (SqlCommand cmd = new SqlCommand("usp_ins_note", con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.Add("@to", SqlDbType.VarChar).Value = to;
-                        cmd.Parameters.Add("@from", SqlDbType.VarChar).Value = from;
-                        cmd.Parameters.Add("@heading", SqlDbType.VarChar).Value = heading;
-                        cmd.Parameters.Add("@body", SqlDbType.VarChar).Value = body;
-
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                return successful;
-            }
-            catch (Exception ex)
-            {
-                return successful = false;
-            }
+            blockBlob.UploadFromStream(stream);
         }
     }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <map>
+    <!-- Copy field to target with the option of moving a default value if source field is unavailable -->
+    <copy>
+      <sourceFieldName>First Name</sourceFieldName>
+      <targetFieldName>FNAME</targetFieldName>
+      <value>FNU</value>
+    </copy>
+    <copy>
+      <sourceFieldName>Last Name</sourceFieldName>
+      <targetFieldName>LNAME</targetFieldName>
+      <value> </value>
+    </copy>
+    <!-- Assign a value to target field -->
+    <assign>
+      <targetFieldName>Location</targetFieldName>
+      <value>Chicago</value>
+    </assign>
+
+    <!-- Format source date field to target
+              supported formats:
+              ccyyMMdd
+              ccyy-MM-dd
+              MM/dd/ccyy
+              MM-dd-ccyy
+              MM/dd/YY
+              MM-dd-YY
+              dd/MM/ccyy
+              dd-MM-ccyy
+              dd/MM/YY
+              dd-MM-YY
+      -->
+    <formatDate>
+      <sourceFieldName>DOB</sourceFieldName>
+      <sourceFormat>MM/dd/ccyy</sourceFormat>
+      <targetFieldName>Date Of Birth</targetFieldName>
+      <targetFormat>MM-dd-ccyy</targetFormat>
+    </formatDate>
+    <!-- Lookup a table to derive target field value from source
+              default:
+              null   - Assigns null value to target. This is the default, if lookupDefault is not specified.
+              copy   - Copies the source field into the target field if lookup returns no result
+              assign - Assigns the value in <value> if specified if lookup returns no result. Sets null if <value> is missing.
+      -->
+
+    <lookup>
+      <lookupTable>genderLookup</lookupTable>
+      <sourceFieldName>Gender Code</sourceFieldName>
+      <targetFieldName>Gender</targetFieldName>
+      <default>assign</default>
+      <value> </value>
+    </lookup>
+
+    <concat>
+      <sourceFieldName1>First Name</sourceFieldName1>
+      <sourceFieldName2>Last Name</sourceFieldName2>
+      <targetFieldName>Full Name</targetFieldName>
+      <separator> </separator>
+    </concat>
+    
+      </map>
+  <lookupTables>
+    <genderLookup>
+      <row>
+        <key>M</key>
+        <value>Male</value>
+      </row>
+      <row>
+        <key>F</key>
+        <value>Female</value>
+      </row>
+      <default>
+        <value>Unknown</value>
+      </default>
+    </genderLookup>
+  </lookupTables>
+</config>
