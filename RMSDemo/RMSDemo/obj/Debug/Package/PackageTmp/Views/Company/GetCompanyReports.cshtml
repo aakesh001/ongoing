@@ -1,0 +1,356 @@
+﻿@model List<Entities.RegisteredDevice>
+@{
+    ViewBag.Title = "StateVillage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/trirand/ui.jqgrid.css" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/selectstyle.css" rel="stylesheet" />
+
+}
+<div class="fl fw page-main">
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Reports</span>
+        </h3>
+        <div class="fl fw section-container">
+
+            <ul class="fl fw ul-form-group">
+                <li>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Choose Device</label>
+
+                            <select name="Assigned" id="Assigned" placeholder="Select Device" class="fl fw frmElement" style="z-index:10000" , data-search="true">
+                                <option value="0">Select Device</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.IMEI">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="exampleInputEmail1" class="fl fw">StartDate</label>
+                            @Html.TextBox("StartDate", "", new { @id = "StartDate", @class = "fl fw frmElement", @style = "z-index:101", placeholder = "dd/mm/yyyy", maxlength = "50" })
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">StartHour</label>
+                            <select name="StartHour" id="StartHour" class="fl fw frmElement">
+                                <option value="value">Select Option</option>
+                                <option value="01:00">01:00</option>
+                                <option value="02:00">02:00</option>
+                                <option value="03:00">03:00</option>
+                                <option value="04:00">04:00</option>
+                                <option value="05:00">05:00</option>
+                                <option value="06:00" selected="selected">06:00</option>
+                                <option value="07:00">07:00</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
+                                <option value="23:00">23:00</option>
+                                <option value="24:00">24:00</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="exampleInputEmail1" class="fl fw">EndDate</label>
+                            @Html.TextBox("EndDate", "", new { @id = "EndDate", @class = "fl fw frmElement", @style = "z-index:100", placeholder = "dd/mm/yyyy", maxlength = "50" })
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">EndHour</label>
+                            <select name="EndHour" id="EndHour" class="fl fw frmElement">
+                                <option value="value">Select Option</option>
+                                <option value="01:00">01:00</option>
+                                <option value="02:00">02:00</option>
+                                <option value="03:00">03:00</option>
+                                <option value="04:00">04:00</option>
+                                <option value="05:00">05:00</option>
+                                <option value="06:00">06:00</option>
+                                <option value="07:00">07:00</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00" selected="selected">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
+                                <option value="23:00">23:00</option>
+                                <option value="24:00">24:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+
+                            <input type="button" value="Submit" id="GetLiveData" onclick="SendData()" name="GetLiveData" class=" fl fw frmElement fr btn">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Reports</span>
+        </h3>
+        <ul>
+            <li>
+                <input type="button" value="Export" id="export" onclick="SendData()" name="GetLiveData" class="btn btn-primary btn-md" style="display:none;">
+                <input type="button" value="PDF" id="exportpdf" onclick="SendData()" name="GetLiveData" class="btn btn-primary btn-md" style="display:none;">
+            </li>
+        </ul>
+        <div class="" jqGridPager">
+            <table id="grid" class="table"></table>
+            <div id="jqGridPager"></div>
+        </div>
+    </section>
+</div>
+@section scripts{<!-- Validation engine style file -->
+    <script src="~/Scripts/CalendarJ.js"></script>
+    <script src="~/Scripts/CalendarUi.js"></script>
+    <script src="~/Scripts/trirand/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/trirand/src/jquery.jqGrid.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.26/build/pdfmake.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.26/build/vfs_fonts.js"></script>
+    <script src="~/Scripts/selectstyle.js"></script>
+    <script>
+        var count = 0;
+        $(document).ready(function () {
+
+            $('#Assigned').selectstyle({
+                width: 400,
+                height: 300,
+                theme: 'light',
+                onchange: function (val) { }
+            });
+            $('#select_style_ul').css({ 'z-index': '1000' });
+            $(function () {
+                $("#StartDate").datepicker({ dateFormat: "dd/mm/yy" });
+            });
+            $(function () {
+                $("#EndDate").datepicker({ dateFormat: "dd/mm/yy" });
+            });
+        });
+
+        function getAsDate(day, time) {
+            var hours = Number(time.match(/^(\d+)/)[1]);
+            var minutes = Number(time.match(/:(\d+)/)[1]);
+
+            var sHours = hours.toString();
+            var sMinutes = minutes.toString();
+            if (hours < 10) sHours = "0" + sHours;
+            if (minutes < 10) sMinutes = "0" + sMinutes;
+            time = sHours + ":" + sMinutes + ":00";
+            var d = new Date(day);
+
+            var n = d.toISOString().substring(0, 10);
+            var newDate = new Date(n + "T" + time);
+            return newDate;
+        }
+        function SendData() {
+            var SelectedVale = $('#select_style_text').text().trim();
+            console.log(SelectedVale);
+            var DeviceName = $("#Assigned option:contains(" + SelectedVale + ")").val();
+            console.log(DeviceName);
+            // var DeviceName = $('#Assigned').val();
+            var StartDate = $('#StartDate').val();
+            var StartTime = $('#StartHour').val();
+            var EndDate = $('#EndDate').val();
+            var EndTime = $('#EndHour').val();
+            $("#grid").trigger("GridUnload");
+            $.ajax
+                ({
+                    url: '/Reports/GetLiveDataForReport',
+                    type: 'POST',
+                    datatype: 'application/json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        Assigned: DeviceName,
+                        StartDate: StartDate,
+                        StartHour: StartTime,
+                        EndDate: EndDate,
+                        EndHour: EndTime
+                    }),
+                    success: function (result) {
+                        if (count === 0) {
+                            BindGrid(result);
+                        }
+                        count++;
+                        if (count > 0) {
+                            $("#grid").setGridParam({ data: result });
+                            $("#grid").trigger("reloadGrid");
+                        }
+                    },
+                    error: function () {
+                        alert("Whooaaa! Something went wrong..")
+                    },
+                });
+        }
+
+        function BindGrid(result) {
+            $("#export").show();
+            $("#exportpdf").show();
+            $("#grid").jqGrid({
+                datatype: 'local',
+                data: result,
+                colModel: [
+                    { name: 'DevieName', label: 'DeviceName', editable: false },
+                    { name: 'FarmerName', label: 'FarmerName', editable: false },
+                    { name: 'device_id', label: 'ID', key: true, editable: true, hidden: true, editoptions: { readonly: "readonly" } },
+                    { name: 'last_update', label: 'Date Time', sorttype: 'date', formatter: 'date', formatoptions: { srcformat: "ISO8601Long", newformat: "m/d/Y h:i A" } },
+                    { name: 'frequency', label: 'Output Frequency', editable: true },
+                    { name: 'dc_bus_voltage', label: 'DC Bus Voltage', editable: true },
+                    { name: 'current', label: 'Output Current', editable: true },
+                    { name: 'in_power', label: 'Input Power', editable: false },
+                    { name: 'output_voltage', label: 'Output voltage', editable: false },
+                   
+
+                    { name: 'Pono', label: 'Pono', editable: false },
+                    { name: 'Energy', label: 'Energy', editable: false },
+                    { name: 'TotalEnergy', label: 'TotalEgy', editable: false },
+                    { name: 'WaterFlow', label: 'WaterFLW', editable: false },
+                    { name: 'TotalWaterflow', label: 'TotalWaterFLW', editable: false }
+
+                ], caption: 'Device',
+                width: '1200',
+                height: 600,
+                loadonce: false,
+                rowNum: 50,
+                viewrecords: true,
+                rownumbers: true,
+                rowList: [5, 10, 20, 50],
+                sortorder: 'asc',
+                pager: "#jqGridPager"
+
+            });
+            $('#grid').jqGrid('navGrid', '#jqGridPager',
+                { edit: false, add: false, del: false, search: false }
+            );
+
+            $("#grid").jqGrid('inlineNav', '#jqGridPager',
+                {
+                    edit: false,
+                    editicon: "ui-icon-pencil",
+                    add: false,
+                    addicon: "ui-icon-plus",
+                    save: true,
+                    saveicon: "ui-icon-disk",
+                    cancel: true,
+                    cancelicon: "ui-icon-cancel",
+
+                    editParams: {
+                        keys: false,
+                        oneditfunc: null,
+                        successfunc: function (val) {
+                            if (val.responseText != "") {
+                                alert(val.responseText);
+                                $(this).jqGrid('setGridParam', { datatype: 'json' }).trigger('reloadGrid');
+                            }
+                        },
+                        url: null,
+                        extraparam: {
+                            EmpId: function () {
+                                var sel_id = $('#jQGridDemo').jqGrid('getGridParam', 'selrow');
+                                var value = $('#jQGridDemo').jqGrid('getCell', sel_id, '_id');
+                                return value;
+                            }
+                        },
+                        aftersavefunc: null,
+                        errorfunc: null,
+                        afterrestorefunc: null,
+                        restoreAfterError: true,
+                        mtype: "POST"
+                    },
+                    addParams: {
+                        useDefValues: true,
+                        addRowParams: {
+                            keys: true,
+                            extraparam: {},
+                            // oneditfunc: function () { alert(); },
+                            successfunc: function (val) {
+                                if (val.responseText != "") {
+                                    alert(val.responseText);
+                                    $(this).jqGrid('setGridParam', { datatype: 'json' }).trigger('reloadGrid');
+                                }
+                            }
+                        }
+                    }
+                }
+            );
+            $("#export").on("click", function () {
+                var DeviceName = $('#select_style_text').text();
+                var StartDate = $('#StartDate').val();
+                var EndDate = $('#EndDate').val();
+                var d = new Date();
+                $("#grid").jqGrid("exportToExcel", {
+                    includeLabels: true,
+                    includeGroupHeader: true,
+                    includeFooter: true,
+                    fileName: DeviceName + '_Report' + StartDate + '_' + EndDate + ".xlsx",
+                    maxlength: 40 // maxlength for visible string data
+                })
+            });
+            //http://www.guriddo.net/documentation/guriddo/javascript/user-guide/exporting/
+            //http://pdfmake.org/#/gettingstarted
+
+            $("#exportpdf").on("click", function () {
+                var DeviceName = $('#select_style_text').text();
+                var StartDate = $('#StartDate').val();
+                var EndDate = $('#EndDate').val();
+                var d = new Date();
+                $("#grid").jqGrid("exportToPdf", {
+                    title: DeviceName + '_' + StartDate + '_' + EndDate,
+                    orientation: 'portrait',
+                    pageSize: 'A4',
+                    description: DeviceName + '_Report' + StartDate + '_' + EndDate,
+                    customSettings: null,
+                    download: 'download',
+                    includeLabels: true,
+                    includeGroupHeader: true,
+                    includeFooter: true,
+                    fileName: DeviceName + '_Report' + StartDate + '_' + EndDate + '.pdf',
+                    onBeforeExport: function (doc) {
+                        doc.styles.tableBody.fontSize = 8;
+                        doc.styles.tableBody.fontSize = 8;
+                        doc.width = '1000';
+
+                    }
+                })
+            });
+        };
+    </script>
+}

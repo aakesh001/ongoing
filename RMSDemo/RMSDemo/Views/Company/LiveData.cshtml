@@ -1,0 +1,542 @@
+﻿@using RMSDemo.Utilities;
+@model List<Entities.RegisteredDevice>
+@{
+    ViewBag.Title = "StateVillage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <link href="~/css/selectstyle.css" rel="stylesheet" />
+}
+<div class="fl fw page-main" id="Grid">
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Live Data</span>
+        </h3>
+        <div class="fl fw section-container">
+
+            <ul class="fl fw ul-form-group">
+                <li>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Choose Device</label>
+
+                            <select name="Assigned" id="Assigned" placeholder="Select Device" class="fl fw frmElement" data-search="true">
+
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.IMEI">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw"></label>
+                            <input type="button" value="Submit" id="GetLiveData" onclick="getLiveQueue()" name="GetLiveData" class=" btncust">
+                            <input type="button" value="ExportPDF" id="GetPdf" onclick="getPDF()" name="GetLiveData" class=" btncust">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Live Data </span>
+        </h3>
+        <div class="fl fw section-container">
+            <ul class="fl fw ul-form-group">
+                <li>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Selected device IMEI:</label>
+                            <label for="" id="sel_device" class="fl fw">Choose Device</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Device Name:</label>
+                            <label for="" id="sel_deviceName" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Last Updated:</label>
+                            <label for="" id="last_updated" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Lattitude:</label>
+                            <label for="" id="Lattitude" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Longitude:</label>
+                            <label for="" id="Longitude" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Address:</label>
+                            <label for="" id="Address" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+
+                <h3 class="fl fw">
+                    <i class="i-user"></i>
+                    <span>DC Parameters</span>
+                </h3>
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Output Frequency</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="OutFreq" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">FarmerName</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="Farmediv">
+                        <div class="fl fw input-group">
+                            <label for="" id="FarmeName" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">DC Bus Voltage</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="dcBus" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">PhoneNumber</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="PhNumdiv">
+                        <div class="fl fw input-group">
+                            <label for="" id="PhNum" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">O/P Current</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="OpCurr" class="fl fw"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">PO</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="POdiv">
+                        <div class="fl fw input-group">
+                            <label for="" id="PO" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Input Power</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="InPow" class="fl fw"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Department</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="DepartMentdiv">
+                        <div class="fl fw input-group">
+                            <label for="" id="DepartMent" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">O/P Voltage</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="OutVolt" class="fl fw"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Village </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="Villagediv">
+                        <div class="fl fw input-group">
+                            <label for="" id="Village" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="" class="fl fw"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">Mandal </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="Mandaldiv">
+                        <div class="fl fw input-group">
+                            <label for="" id="Mandal" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+                @*<li>
+                        <div class="col-md-3">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="fl fw input-group">
+                                <label for="" id="" class="fl fw"></label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">District </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="fl fw input-group">
+                                <label for="" id="District" class="fl fw"></label>
+                            </div>
+                        </div>
+                    </li>*@
+                <li class=" ">
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  ">
+                        <div class="fl fw input-group">
+                            <label for="" id="OutVolt" class="fl fw"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 TableBord">
+                        <div class="fl fw input-group">
+                            <label for="" class="fl fw">State</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3  " id="Statediv">
+                        <div class="fl fw input-group">
+                            <label for="" id="State" class="fl fw"></label>
+                        </div>
+                    </div>
+                </li>
+                <div class="row gaugeCharts">
+                    <div class="col-xs-4">
+                        <strong class="col-xs tac">Output Frequency</strong>
+                        <div id="Chart_1" style="width: 100%; height: 240px;"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong class="col-xs tac">DC Bus Voltage</strong>
+                        <div id="Chart_2" style="width: 100%; height: 240px;"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong class="col-xs tac">O/P Current</strong>
+                        <div id="Chart_3" style="width: 100%; height: 240px;"></div>
+                    </div>
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-4">
+                        <strong class="col-xs tac">Input Power</strong>
+                        <div id="Chart_4" style="width: 100%; height: 240px;"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong class="col-xs tac">O/P Voltage</strong>
+                        <div id="Chart_5" style="width: 100%; height: 240px;"></div>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+            </ul>
+        </div>
+    </section>
+</div>
+@section scripts{<!-- Validation engine style file -->
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+    <script src="~/Scripts/selectstyle.js"></script>
+    <script>
+        var userId = '@UIHelper.UserSession.UserName';
+        var Password='@UIHelper.UserSession.Password';
+        var comp = '@(UIHelper.UserSession.FirstName +" "+ UIHelper.UserSession.LastName)';
+        var path = '@UIHelper.UserSession.LogoPath';
+        $(document).ready(function () {
+
+            $('select').selectstyle({
+                width: 400,
+                height: 300,
+                theme: 'light',
+                onchange: function (val) { }
+            });
+
+
+            //$('#Assigned').find('option:first').attr('selected', 'selected');
+
+});
+                function getPDF() {
+                    var SelectedVale = $('#select_style_text').text().trim();
+                    var AssigneDevice = $("#Assigned option:contains(" + SelectedVale + ")").val();
+                   // var AssigneDevice = $("#Assigned").val();
+                    if (AssigneDevice == 0) {
+                $.alert({
+                            title: 'Alert!',
+                    content: 'Please Select Device!!',
+                });
+
+                return;
+                    }
+                    window.open('http://rmspdf.southindia.cloudapp.azure.com/Company/GetPdf?deviceID=' + AssigneDevice + '&Password=' + Password + '&userID=' + userId, '_blank');
+                   // window.location.href = 'http://rmspdf.southindia.cloudapp.azure.com/Company/GetPdf?deviceID=' + AssigneDevice + '&Password=' + Password + '&userID=' + userId;
+
+        }
+
+                function getLiveQueue() {
+                    var SelectedVale = $('#select_style_text').text().trim();
+                    var AssigneDevice = $("#Assigned option:contains(" + SelectedVale + ")").val();
+                //var AssigneDevice = $("#Assigned").text(SelectedVale);
+                console.log(AssigneDevice);
+            if (AssigneDevice == 0) {
+                $.alert({
+                    title: 'Alert!',
+                    content: 'Please Select Device!!',
+                });
+
+                return;
+            }
+
+            console.log(AssigneDevice);
+            $('#sel_device').text(AssigneDevice);
+            $('#sel_deviceName').text(SelectedVale);
+
+            $.ajax
+                ({
+                url: '/Company/GetCompanyLiveData',
+                    type: 'POST',
+                    datatype: 'application/json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+
+                    Assigned: AssigneDevice
+                    }),
+                    success: function (result) {
+                        $("#Lattitude").text(result.Item1.lattitude);
+                        $("#Longitude").text(result.Item1.longitude);
+                        getAdressLatLong(result.Item1.lattitude, result.Item1.longitude);
+                        var milli = result.Item1.last_update.replace(/\/Date\((-?\d+)\)\//, '$1');
+                        var d = new Date(parseInt(milli));
+                    month = '' + (d.getMonth() + 1),
+                            day = '' + d.getDate(),
+                            year = d.getFullYear();
+                        //$("#last_updated").text(d.getHours().toString() + ':' + d.getMinutes().toString() + ':' + d.getSeconds().toString());
+                    $("#last_updated").text(year + '/' + month + '/' + day + ' ' + d.getHours().toString() + ':' + d.getMinutes().toString() + ':' + d.getSeconds().toString());
+
+                    if (result.Item2 != null)
+                    {
+                        $("#FarmeName").text(result.Item2.FarmerName);
+                        $("#Farmediv").addClass("TableBord");
+                        $("#PhNum").text(result.Item2.PhoneNumber);
+                        $("#PhNumdiv").addClass("TableBord");
+                        $("#PO").text(result.Item2.Pono);
+                        $("#POdiv").addClass("TableBord");
+                        $("#DepartMent").text(result.Item2.Department);
+                        $("#DepartMentdiv").addClass("TableBord");
+                        $("#Village").text(result.Item2.VillageName);
+                        $("#Villagediv").addClass("TableBord");
+                        $("#Mandal").text(result.Item2.MandalName);
+                        $("#Mandaldiv").addClass("TableBord");
+                     //   $("#District").text(result.Item2.District);
+                        $("#State").text(result.Item2.StateName);
+                        $("#Statediv").addClass("TableBord");
+                    }
+                    console.log(result.Item1);
+
+                        Create(result.Item1.frequency, result.Item1.dc_bus_voltage, result.Item1.current, result.Item1.in_power, result.Item1.output_voltage);
+
+                },
+                    error: function () {
+                    alert("Whooaaa! Something went wrong..")
+                    },
+                });
+
+        }
+        function Create(frequency, dcvolt, curr, inpower, outvolt) {
+            $('#OutFreq').html(frequency + ' HZ');
+            $('#dcBus').html(dcvolt + ' V');
+            $('#OpCurr').html(curr + ' A');
+            $('#InPow').html(inpower + ' KW');
+            $('#OutVolt').html(outvolt + ' V');
+
+            google.charts.load('current', { 'packages': ['gauge'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+        function getlabels(min, max, count) {
+            var tempArr = [],
+                gap = max / (count - 1);
+            for (var i = min; i <= max; i = i + gap) {
+                tempArr.push(i.toString())
+                    }
+            return tempArr;
+        }
+
+        // Chart 1
+        var Chart_1_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', frequency]]);
+
+        var mTicks_1 = getlabels(0, 50, 11),
+            Chart_1_options = {
+                        width: 800, height: 240,
+                        min: 0, max: 60,
+                        redFrom: 0, redTo: 12,
+                        yellowFrom: 24, yellowTo: 36,
+                        greenFrom: 48, greenTo: 60,
+                        majorTicks: mTicks_1,
+                        minorTicks: 30
+                    };
+
+    var chart_1 = new google.visualization.Gauge(document.getElementById('Chart_1'));
+    chart_1.draw(Chart_1_data, Chart_1_options);
+
+                // Chart 2
+                var Chart_2_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', dcvolt]]);
+
+                var mTicks_2 = getlabels(0, 1000, 6),
+                    Chart_2_options = {
+                        width: 800, height: 240,
+                        min: 0, max: 1000,
+                        redFrom: 0, redTo: 200,
+                        yellowFrom: 200, yellowTo: 600,
+                        greenFrom: 400, greenTo: 1000,
+                        majorTicks: mTicks_2,
+                        minorTicks: 30
+                    };
+
+    var Chart_2 = new google.visualization.Gauge(document.getElementById('Chart_2'));
+    Chart_2.draw(Chart_2_data, Chart_2_options);
+
+                // Chart 3
+                var Chart_3_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', curr]]);
+
+                var mTicks_3 = getlabels(0, 10, 6),
+                    Chart_3_options = {
+                        width: 800, height: 240,
+                        min: 0, max: 10,
+                        redFrom: 0, redTo: 4,
+                        yellowFrom: 4, yellowTo: 6,
+                        greenFrom: 6, greenTo: 10,
+                        majorTicks: mTicks_3,
+                        minorTicks: 30
+                    };
+
+    var Chart_3 = new google.visualization.Gauge(document.getElementById('Chart_3'));
+    Chart_3.draw(Chart_3_data, Chart_3_options);
+
+                // Chart 4
+                var Chart_4_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', inpower]]);
+
+                var mTicks_4 = getlabels(0, 10, 6),
+                    Chart_4_options = {
+                        width: 800, height: 240,
+                        min: 0, max: 10,
+                        redFrom: 0, redTo: 4,
+                        yellowFrom: 4, yellowTo: 6,
+                        greenFrom: 6, greenTo: 10,
+                        majorTicks: mTicks_4,
+                        minorTicks: 30
+                    };
+
+    var Chart_4 = new google.visualization.Gauge(document.getElementById('Chart_4'));
+    Chart_4.draw(Chart_4_data, Chart_4_options);
+
+                // Chart 5
+                var Chart_5_data = google.visualization.arrayToDataTable([['Label', 'Value'], ['', outvolt]]);
+
+                var mTicks_5 = getlabels(0, 500, 6),
+                    Chart_5_options = {
+                        width: 800, height: 240,
+                        min: 0, max: 500,
+                        redFrom: 0, redTo: 100,
+                        yellowFrom: 200, yellowTo: 300,
+                        greenFrom: 400, greenTo: 500,
+                        majorTicks: mTicks_5,
+                        minorTicks: 30
+                    };
+
+    var Chart_5 = new google.visualization.Gauge(document.getElementById('Chart_5'));
+    Chart_5.draw(Chart_5_data, Chart_5_options);
+
+                // Set Values Using...
+                //setInterval(function () {
+                //    Chart_1_data.setValue(0, 1, 2 + Math.round(6 * Math.random()));
+                //    chart_1.draw(Chart_1_data, Chart_1_options);
+                //}, 13000);
+            }
+        }
+        function getAdressLatLong(lat, long) {
+            $.ajax
+                ({
+            url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=AIzaSyCS-k8mDwgJEnVNeASxuzGrwfQJr7xh9xg',
+                    type: 'GET',
+                    success: function (result) {
+                console.log(result);
+                        $("#Address").text(result.results[0].formatted_address);
+            },
+                    error: function () {
+                alert("Whooaaa! Something went wrong..")
+                    },
+                });
+    }
+    </script>
+}

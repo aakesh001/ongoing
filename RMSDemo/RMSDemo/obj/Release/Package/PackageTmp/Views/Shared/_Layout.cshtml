@@ -1,0 +1,60 @@
+﻿@using RMSDemo.Utilities
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/trirand/ui.jqgrid.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("RMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @*<ul class="nav navbar-nav">
+                    <li>
+                        @if (UIHelper.UserSession != null)
+                        {
+                            <div class="dib fw brandName">@(UIHelper.UserSession.FirstName + " " + UIHelper.UserSession.FirstName)</div>
+                            <div class="dib fw UserDetails">
+                                <a href="/Account/Logout" style="color:white">
+                                    <i class="bg-dashboard"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        }
+                    </li>
+
+
+                </ul>*@
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row layout-row">
+            @Html.Partial("_SidePanel")
+            @RenderBody()
+        </div>
+        <hr />
+        <footer></footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

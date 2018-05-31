@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "StateVillage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+
+}
+<div class="fl fw page-main">
+    <section class="fl fw collapaseBox">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Add / Edit Company</span>
+        </h3>
+        <div class="fl fw section-container">
+            @using (Html.BeginForm("CreateCompany", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <ul class="fl fw ul-form-group">
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Name</label>
+                                <input type="text" name="Name" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Logo</label>
+                                <input type="file" name="file" id="file" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Organization Name</label>
+                                <input type="text" id="" name="OrgName" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Address</label>
+                                <input type="text" id="Addr" name="Address" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Email</label>
+                                <input type="text" id="" name="Email" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <label for="" class="fl fw">Phone Numner</label>
+                                <input type="text" id="" name="PhNum" class="fl fw frmElement">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="fl fw input-group">
+                                <input type="submit" value="Save" id="" name="PhNum" class="fr btn">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            }
+        </div>
+    </section>
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>Company</span>
+        </h3>
+        <div class="fl fw section-container">
+            <div id="PersonTableContainer" class="fl fw"></div>
+        </div>
+    </section>
+</div>
+@section scripts{<!-- Validation engine style file -->
+    <!-- Validation engine script file and english localization -->
+    <script src="~/Scripts/jquery.min.js" ></script>
+
+    <script src="~/Scripts/jquery.ui.widget.js"></script>
+    <script src="~/Scripts/jquery.iframe-transport.js"></script>
+    <script src="~/Scripts/jquery.fileupload.js"></script>
+
+    <script src="~/Scripts/JqueryJtable.js"></script>
+    <script src="~/Scripts/JqueryUIJtable.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.js"></script>
+
+    <script src="~/Scripts/page.js"></script>
+    <script src="~/Scripts/jtable/validationEngine/jquery.validationEngine.js"></script>
+
+    <script src="~/Scripts/jtable/validationEngine/jquery.validationEngine-en.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+}

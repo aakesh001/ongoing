@@ -1,0 +1,65 @@
+﻿@model Tuple<int, int,int,int>
+@{
+    ViewBag.Title = "StateVillage";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+
+}
+<div class="fl fw page-main">
+    <section class="fl fw  ">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span>DashBoard</span>
+        </h3>
+        <div class="fl fw section-container">
+
+            <ul class="fl fw ul-form-group">
+                <li>
+                     
+                    <div class="col-xs-12 col-lg-3">
+                        <div class="fl fw input-group">
+                            <p id="rcorners1" class="rcorners col-xs-12 cb"><i class="fab fa-accusoft"></i> Total Count  @Model.Item1</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-3">
+                        <div class="fl fw input-group">
+                            <p id="rcorners1" class="rcorners col-xs-12 cd"><i class="fas fa-arrow-alt-circle-up"></i>Total Started  @Model.Item2</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-3">
+                        <div class="fl fw input-group">
+                            <p id="rcorners1" class="rcorners col-xs-12 ce"><i class="fas fa-arrow-alt-circle-down"></i>Today Ready @Model.Item3 </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-3">
+                        <div class="fl fw input-group">
+                            <p id="rcorners1" class="rcorners col-xs-12 cf"><i class="fas fa-stop-circle"></i>Total Stopped @Model.Item4</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="fl fw">
+        <h3 class="fl fw">
+            <i class="i-user"></i>
+            <span> </span>
+        </h3>
+        <div class="fl fw section-container">
+            <form>
+                Device: <input type="text" name="name" id="name" />
+                <button type="submit" id="LoadRecordsButton">Search</button>
+            </form>
+        </div>
+        <div class="fl fw section-container">
+            <div id="UserTableContainer" class="fl fw"></div>
+        </div>
+    </section>
+</div>
+@section scripts{<!-- Validation engine style file -->
+    <script src="~/Scripts/JqueryJtable.js"></script>
+    <script src="~/Scripts/JqueryUIJtable.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.js"></script>
+    <script src="~/Scripts/Dashboard.js"></script>
+    <script src="~/Scripts/jtable/validationEngine/jquery.validationEngine.js"></script>
+    <script src="~/Scripts/jtable/validationEngine/jquery.validationEngine-en.js"></script>
+}

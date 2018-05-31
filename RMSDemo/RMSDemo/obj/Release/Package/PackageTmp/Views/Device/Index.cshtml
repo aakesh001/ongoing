@@ -1,0 +1,300 @@
+﻿@{
+    ViewBag.Title = "Device";
+}
+
+ 
+  
+
+    <div class="col-xs-10 page-col">
+        <div class="row">
+            <div class="col-xs-12">
+                @using (Html.BeginForm("AddDevice", "Device", FormMethod.Post, new { role = "form" }))
+                {
+                    <h4>Device Register</h4>
+                    <div class="panel panel-default addModemForm">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="row" role="form">
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Name", new { @id = "BodyContentPlaceHolder_Label1", @class = "control-label", @for = "BodyContentPlaceHolder_txtMid" })
+                                        @Html.TextBox("Name", "", new { @id = "BodyContentPlaceHolder_txtName", @class = "form-control", placeholder = "Name", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtMid" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_rf1" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("OutputFrequency", new { @id = "BodyContentPlaceHolder_Label2", @class = "control-label", @for = "BodyContentPlaceHolder_txtModemName" })
+                                        @Html.TextBox("OutFreq", "", new { @class = "form-control", placeholder = "OutputFrequency", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtModemName" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator1" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("DcBus Voltage", new { @id = "BodyContentPlaceHolder_Label4", @class = "control-label", @for = "BodyContentPlaceHolder_txtSimPin" })
+                                        @Html.TextBox("DcBusVolt", "", new { @class = "form-control", placeholder = "SIM Pin", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Output Current", new { @id = "BodyContentPlaceHolder_Label4", @class = "control-label", @for = "BodyContentPlaceHolder_txtSimPin" })
+                                        @Html.TextBox("OutputCurr", "", new { @class = "form-control", placeholder = "Output Current", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Input Power", new { @id = "BodyContentPlaceHolder_Label5", @class = "control-label", @for = "BodyContentPlaceHolder_txtInputPower" })
+                                        @Html.TextBox("InputPow", "", new { @class = "form-control", placeholder = "Input Power", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Output Voltage", new { @id = "BodyContentPlaceHolder_Label6", @class = "control-label", @for = "BodyContentPlaceHolder_txtOutPutVoltage" })
+                                        @Html.TextBox("OutputVolt", "", new { @class = "form-control", placeholder = "Output Voltage", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Output Frequency Format", new { @id = "BodyContentPlaceHolder_Label7", @class = "control-label", @for = "BodyContentPlaceHolder_txtOutputFrequency" })
+                                        <select name="OutputFreq" id="OutputFreq" class="form-control">
+                                            <option value="0">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="10">10</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("DcBus Voltage Format", new { @id = "BodyContentPlaceHolder_Label8", @class = "control-label", @for = "BodyContentPlaceHolder_txtDcBusVoltageFormat" })
+                                        <select name="DcBusVoltageFormat" id="DcBusVoltageFormat" class="form-control">
+                                            <option value="0">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="10">10</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Output Current Format", new { @id = "BodyContentPlaceHolder_Label9", @class = "control-label", @for = "BodyContentPlaceHolder_txtOutputCurrentFormat" })
+                                        <select name="OutputCurrForm" id="OutputCurrForm" class="form-control">
+                                            <option value="0">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="10">10</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("input Power Format", new { @id = "BodyContentPlaceHolder_Label10", @class = "control-label", @for = "BodyContentPlaceHolder_txtInputPowerFormat" })
+                                        <select name="inptPwrFor" id="inptPwrFor" class="form-control">
+                                            <option value="0">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="10">10</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Output Voltage Format", new { @id = "BodyContentPlaceHolder_Label11", @class = "control-label", @for = "BodyContentPlaceHolder_txtOutputVoltageFormat" })
+                                        <select name="OutVoltFor" id="OutVoltFor" class="form-control">
+                                            <option value="0">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="10">10</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Baud Rate", new { @id = "BodyContentPlaceHolder_Label12", @class = "control-label", @for = "BodyContentPlaceHolder_txtBaudrate" })
+                                        @Html.TextBox("BaudRate", "", new { @class = "form-control", placeholder = "Baud Rate", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("Parity", new { @id = "BodyContentPlaceHolder_Label13", @class = "control-label", @for = "BodyContentPlaceHolder_txtParity" })
+                                        @Html.TextBox("Parity", "", new { @class = "form-control", placeholder = "Parity", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        @Html.Label("StopBit", new { @id = "BodyContentPlaceHolder_Label14", @class = "control-label", @for = "BodyContentPlaceHolder_txtStopBit" })
+                                        @Html.TextBox("StopBit", "", new { @class = "form-control", placeholder = "StopBit", maxlength = "50" })
+                                        <span data-val-controltovalidate="BodyContentPlaceHolder_txtSimPin" data-val-errormessage="Cannot be blank!" data-val-display="Dynamic" data-val-validationgroup="addmodem" id="BodyContentPlaceHolder_RequiredFieldValidator2" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Cannot be blank!</span>
+                                    </div>
+                                    @*<div class="col-xs-6">
+                                        <div class="row multiplaeValues">
+                                            <div class="col-xs-5">
+                                                <label>Select From here</label>
+                                                <select name="from[]" class="multiselect form-control" size="8" multiple="multiple" data-right="#multiselect_to_1" data-right-all="#right_All_1" data-right-selected="#right_Selected_1" data-left-all="#left_All_1" data-left-selected="#left_Selected_1">
+                                                    <option value="1">Item 1</option>
+                                                    <option value="2">Item 5</option>
+                                                    <option value="2">Item 2</option>
+                                                    <option value="2">Item 4</option>
+                                                    <option value="3">Item 3</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-xs-2">
+                                                <label>&nbsp;</label>
+                                                <button type="button" id="right_All_1" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                                                <button type="button" id="right_Selected_1" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                                                <button type="button" id="left_Selected_1" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                                <button type="button" id="left_All_1" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                                            </div>
+
+                                            <div class="col-xs-5">
+                                                <label>Selected values</label>
+                                                <select name="to[]" id="multiselect_to_1" class="form-control" size="8" multiple="multiple"></select>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <div class="form-group col-xs-11">
+                                        <input type="submit" name="ctl00$BodyContentPlaceHolder$btnSave" value="Add Device Register" onclick="" id="BodyContentPlaceHolder_btnSave" class="btn btn-primary btn-md">
+                                        <input type="button" name="ctl00$BodyContentPlaceHolder$btnSave" value="Export" onclick="" id="export" class="btn btn-primary btn-md">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-xs-12 jqGridPager">
+                <table id="grid" class="table"></table>
+                <div id="jqGridPager"></div>
+            </div>
+        </div>
+
+    </div>
+ 
+
+@section scripts{
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/trirand/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/trirand/src/jquery.jqGrid.js"></script>
+<script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="~/Scripts/multiselect.js"></script>
+    <script>
+        
+        function isNumberKey(evt) {
+
+            var charCode = (evt.which) ? evt.which : event.keyCode
+
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+                return false;
+
+            return true;
+
+        }
+
+        var GetData = function () {
+            return $.ajax("/Device/GetModemResult", {
+                type: "POST"
+
+            });
+        }
+        GetData().done(function (result) {
+            $("#grid").jqGrid({
+                datatype: 'local',
+
+                data: result,
+                colModel: [
+                    { name: 'Id', label: 'ID', key: true, editable: true, editoptions: { readonly: "readonly" } },
+                    { name: 'Name', label: 'Name', editable: true },
+                    { name: 'OutPutFrequency', label: 'Output Frequency', editable: true },
+                    { name: 'DCBusVoltage', label: 'DCBus Voltage', editable: true },
+                    { name: 'OutPutCurrent', label: 'Output Current', editable: true },
+                    { name: 'InputPower', label: 'Input Power', editable: true },
+                    { name: 'OutPutVoltage', label: 'OutPut Voltage', editable: true },
+                    { name: 'OutPutFreqFormat', label: 'OutPut Frequency Format', editable: true },
+                    { name: 'DcBusVoltageFormat', label: 'DcBus Voltage Format', editable: true },
+                    { name: 'OutPutCurrentFormat', label: 'Output Current Format', editable: true },
+                    { name: 'InputPowerFormat', label: 'Input Power Format', editable: true },
+                    { name: 'OutPutVolatageFormat', label: 'Output Volatage Format', editable: true },
+                    { name: 'BaudRate', label: 'Baud Rate', editable: true },
+                    { name: 'Parity', label: 'Parity', editable: true },
+                    { name: 'StopBit', label: 'StopBit', editable: true }
+
+                ], caption: 'Device',
+                width: '1000',
+                loadonce: true,
+                rowNum: 5,
+                viewrecords: true,
+                rownumbers: true,
+                rowList: [5, 10, 20, 50],
+                sortorder: 'asc',
+                pager: "#jqGridPager",
+                editurl: '/Device/UpdateDevice'
+
+            });
+            $('#grid').jqGrid('navGrid', '#jqGridPager',
+                { edit: false, add: false, del: true, search: false },
+                {}, {}, { url: '/Device/DeleteDevice' }
+            );
+
+            $("#grid").jqGrid('inlineNav', '#jqGridPager',
+                {
+                    edit: true,
+                    editicon: "ui-icon-pencil",
+                    add: true,
+                    addicon: "ui-icon-plus",
+                    del: false,
+                    delicon: "ui-icon-trash",
+
+                    save: true,
+                    saveicon: "ui-icon-disk",
+                    cancel: true,
+                    cancelicon: "ui-icon-cancel",
+
+                    editParams: {
+                        keys: false,
+                        oneditfunc: null,
+                        successfunc: function (val) {
+                            if (val.responseText != "") {
+                                alert(val.responseText);
+                                $(this).jqGrid('setGridParam', { datatype: 'json' }).trigger('reloadGrid');
+                            }
+                        },
+                        url: null,
+                        extraparam: {
+                            EmpId: function () {
+                                var sel_id = $('#jQGridDemo').jqGrid('getGridParam', 'selrow');
+                                var value = $('#jQGridDemo').jqGrid('getCell', sel_id, '_id');
+                                return value;
+                            }
+                        },
+                        aftersavefunc: null,
+                        errorfunc: null,
+                        afterrestorefunc: null,
+                        restoreAfterError: true,
+                        mtype: "POST"
+                    },
+                    addParams: {
+                        useDefValues: true,
+                        addRowParams: {
+                            keys: true,
+                            extraparam: {},
+                            // oneditfunc: function () { alert(); },
+                            successfunc: function (val) {
+                                if (val.responseText != "") {
+                                    alert(val.responseText);
+                                    $(this).jqGrid('setGridParam', { datatype: 'json' }).trigger('reloadGrid');
+                                }
+                            }
+                        }
+                    },
+                    del: {
+                        caption: "Delete",
+                        msg: "Delete selected record(s)?",
+                        bSubmit: "Delete",
+                        bCancel: "Cancel"
+                    }
+                }
+            );
+            $("#export").on("click", function () {
+                $("#grid").jqGrid("exportToExcel", {
+                    includeLabels: true,
+                    includeGroupHeader: true,
+                    includeFooter: true,
+                    fileName: "jqGridExport.xlsx",
+                    maxlength: 40 // maxlength for visible string data
+                })
+            });
+        });
+    </script>
+
+}
