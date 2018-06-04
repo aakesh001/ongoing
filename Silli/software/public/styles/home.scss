@@ -1,0 +1,212 @@
+.banner{
+    height: 400px;
+    background: #2A4976 $banner-url center center;
+    background-size: cover;
+    line-height: 400px;
+
+    h3{
+        color: #fff;
+        line-height: normal;
+        font-size: 2em;
+    }
+}
+
+.section-pageDefine{
+    .section-wrapper{padding: 40px 20px;}
+}
+
+.ul-services{
+    margin: 0;
+    padding: 0;
+
+    li{
+        position: relative;
+        padding: 0;
+        display: block;
+        float: left;
+    }
+}
+
+.section-services{
+    background: #fff $services-section-bg no-repeat center center;
+    background-size: cover; 
+}
+
+.service-block{
+    @include transition-duration(.3s);
+    padding: 20px;
+    color: $white;
+    text-align: left;
+    border-bottom: 10px solid #FFF;
+
+    h2{
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    &:hover{
+        h2{
+            color: $main-color;
+        }
+    }
+
+    p{
+        line-height: 1.4em;
+    }
+    a{
+        border: 1px solid $main-color;
+        padding: 10px 20px;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 0.8em;
+
+        &:hover{
+            border-color: darken($main-color, 10%);
+            background-color: $main-color;
+            color: #fff;
+        }
+    }
+}
+
+.section-testimonials{
+    background: #fff $testimonial-section-bg no-repeat center center;
+    background-size: cover; 
+
+    h2{
+        color: $white;
+    }
+}
+
+.testmonial-list{
+    padding: 20px 0 0 20px;
+
+    li{
+        padding: 0 20px 20px 0;
+    }
+
+    .testimonial-block{
+        max-width: 400px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 40px;
+
+        .img{
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+            overflow: hidden;
+            border: 10px solid #fff;
+            margin-top: -50px;
+
+            img{
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        strong{
+            color: $main-color;
+            margin-bottom: 5px;
+        }
+
+        em{
+            margin-bottom: 5px;
+            font-size: 0.8em
+        }
+
+        p{
+            font-size: 0.9em
+        }
+    }
+}
+
+@media only screen and (max-width:767px){
+    .ul-services{
+        li{
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:989px){
+    .ul-services{
+        li{
+            width: 48%;
+        }
+    }
+
+    
+}
+
+@media only screen and (min-width:768px){
+    .service-block:hover{
+        background-color: #08111A;
+        
+    }
+
+    .innerSubBlock {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 20px;
+    }
+
+    .serviceBlock1, .serviceBlock3{
+        border-right:5px solid $white; 
+    }
+
+    .serviceBlock2, .serviceBlock4{
+        border-left:5px solid $white; 
+    }
+
+    .serviceBlock1{
+        .service-block{
+            height: 420px;
+        }
+    }
+
+    .serviceBlock2{
+        .subBlock1{
+            height: 560px;
+        }
+        .subBlock2{
+            height: 280px;
+        }
+    }
+
+    .serviceBlock3{
+        .service-block{
+            height: 280px;
+        }
+    }
+
+    .serviceBlock4{
+        .subBlock2{
+            height: 560px;
+        }
+        .subBlock1{
+            height: 280px;
+        }
+    }
+}
+
+@media only screen and (min-width:990px){
+    .ul-services{
+        li{
+            width: 32%;
+        }
+    }
+}
+
+@media only screen and (min-width:990px){
+    .serviceBlock2{
+        border-right:10px solid $white; 
+    }
+
+    .serviceBlock4{
+        border-left:5px solid $white; 
+    }   
+}

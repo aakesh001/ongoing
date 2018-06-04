@@ -1,0 +1,27 @@
+﻿{
+	"cssBundles": {
+		"cssPath": "/styles/",
+		"bundle": {
+			"igo": {
+				"type": "scss",
+				"ext" : ".min.css",
+				"outputStyle" : "uncompressed",
+				"files": [
+					{
+						"name" : "commonstyles",
+						"files": "variables.scss, mixin.scss, grid.scss, common.scss, layout.scss, home.scss"
+					},
+					{
+						"name" : "cloudfirststyles",
+						"files": "variables.scss, mixin.scss, grid.scss, common.scss, layout.scss, cloudfirst.scss"
+					}
+				]
+			}
+		}
+	}, 
+	"JsBundles": {
+		"jsPath": "/scripts/",
+		"bundle": [
+		]
+	}
+}

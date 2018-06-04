@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Demo Website</title>
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="./public/styles/igo/cloudfirststyles.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+</body>
+<div class="wrapper">
+    <header class="fl fw">
+        <div class="fl fw header-top-wrapper">
+            <div class="container">
+                <div class="fl fw header-inner-wrapper">
+                    <div class="dib vam header-top-left">
+                        <a href="/" class="aLogo dib vam"><strong>LOGO</strong></a>
+                    </div>
+                    <div class="dib vam header-top-right">
+                        <ul class="dib vam fw right-items">
+                            <li>
+                                <a href="/" class="dib fw item-blocks">
+                                    <div class="dib vam items-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                    <div class="dib vam items-text">
+                                        <strong class="db">Call us</strong>
+                                        <span class="db">+123-456-789</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="dib fw item-blocks">
+                                    <div class="dib vam items-icon"><i class="fa fa-envelope-open" aria-hidden="true"></i></div>
+                                    <div class="dib vam items-text">
+                                        <strong class="db">Email</strong>
+                                        <span class="db">contact@example.com</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fl fw header-menu-wrapper">
+            <div class="container">
+                <div class="fl fw header-menu-inner">
+                    <div class="fl fw menu-heading">
+                        <a href="javascript:void(0)" onclick="toggleMenu(this)" class="menu-toggle">Menu <i class="fa fa-bars ml5" aria-hidden="true"></i></a>
+                    </div>
+                    <ul class="fl fw menu-list-items">
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'CloudFirst')">Cloud First</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'software')">Software</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'Analytics')">Analytics</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'InternetOfThings')">Internet of Things</a>
+                        </li>
+                    </ul>
+                    <div id="menu-item-details" class="fl fw menu-item-details" style="display: none">
+                        <button class="fl fw btn-closeMenu" onclick="closeSubmenu()"><i class="fa fa-arrow-circle-left mr10" aria-hidden="true"></i> <strong>Back</strong></button>
+                        <div id="CloudFirst" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Software Driven Business</a>
+                                        <p class="db">Build software in the cloud to compete and stay ahead – by adding new revenue streams,
+                                            and meeting new business demands through industrialized software delivery at
+                                            digital speed.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Intelligent Analytics</a>
+                                        <p class="db">Drive intelligent business strategies with the cloud – to acquire, organize, and
+                                            analyze data across sources, size, velocity, and formats for customer engagement,
+                                            business performance, and smart automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">IoT Connected Enterprise</a>
+                                        <p class="db">Leverage the cloud to monetize data from sensors and devices – for creating new revenue
+                                            streams, better asset management, smart monitoring, innovate connected experiences,
+                                            and intelligent processes automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Modern Infrastructure</a>
+                                        <p class="db">Become a nimble, business centric and modern IT organization with a “service delivery”
+                                            mindset, smartly leveraging the Cloud to drive better responsiveness and cost
+                                            efficiencies.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Smart Digital Workplace</a>
+                                        <p class="db">Create an empowered workforce with cloud business apps to enable a collaborative
+                                            and secure workplace, delivered across locations & devices, and maximize productivity
+                                            and innovation.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="software" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12">
+                                    <div class="fl fw item-block-box">
+                                        <strong class="db">Overview</strong>
+                                        <p class="db">Deliver software that enables competitive advantage for enterprises – to add new
+                                            revenue streams, and meet new business demands through industrialized software
+                                            delivery at digital speed. </p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6 col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>SERVICES</strong>
+                                        <a href="/" class="db">Development</a>
+                                        <a href="/" class="db">UX / UI</a>
+                                        <a href="/" class="db">Testing</a>
+                                        <a href="/" class="db">DevOps</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6 col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>EXPERTISE</strong>
+                                        <a href="/" class="db">SaaS Solutions</a>
+                                        <a href="/" class="db">Mobile Apps</a>
+                                        <a href="/" class="db">Software Products</a>
+                                        <a href="/" class="db">Custom Software</a>
+                                        <a href="/" class="db">Intelligent Apps</a>
+                                        <a href="/" class="db">XaaS Solutions</a>
+                                        <a href="/" class="db">Online Platforms</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-xlg-6">
+                                    <div class="fl fw item-block-box">
+                                        <strong>TECHNOLOGY</strong>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/azure.svg" />
+                                            <em>Azure PaaS</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/microsoft.net.svg" />
+                                            <em>.NET</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/java.svg" />
+                                            <em>Java</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/mobile.svg" />
+                                            <em>Mobile</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/cpp.svg" />
+                                            <em>C++</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/javascript.svg" />
+                                            <em>JavaScript</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/python.svg" />
+                                            <em>Python</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/ruby-on-rails.svg" />
+                                            <em>Ruby on Rails</em>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="Analytics" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12 col-lg-6 col-xlg-4">
+                                    <div class="fl fw item-block-box">
+                                        <strong class="db">Overview</strong>
+                                        <p class="db">Deliver analytics solutions that drive intelligent business strategies by analyzing
+                                            data to develop actionable insights for improving customer engagement, business
+                                            performance, and enable smart automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6  col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>SERVICES</strong>
+                                        <a href="/" class="db">Business Intelligence</a>
+                                        <a href="/" class="db">Big Data Analytics</a>
+                                        <a href="/" class="db">Enterprise Data Management</a>
+                                        <a href="/" class="db">DataOps</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12  col-xlg-5">
+                                    <div class="fl fw item-block-box">
+                                        <strong>TECHNOLOGY</strong>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/azure.svg" /> Azure Cortana
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/apache-big-data.svg" /> Apache Big Data
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/power-bi.svg" /> PowerBI
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/sql.svg" /> SQL
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/tableau.svg" /> Tableau
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/logi.svg" /> Logi
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/looker.svg" /> Looker
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="InternetOfThings" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12 col-lg-6 col-xlg-5">
+                                    <div class="fl fw item-block-box">
+                                        <strong class="db">Overview</strong>
+                                        <p class="db">Deliver IoT solutions that drive new revenue streams, better asset management, smart
+                                            monitoring, innovate connected experiences, and intelligent processes automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6 col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>SERVICES</strong>
+                                        <a href="/" class="db">Connected Platform</a>
+                                        <a href="/" class="db">Stream Processing</a>
+                                        <a href="/" class="db">Analytics</a>
+                                        <a href="/" class="db">Intelligent IoT Systems</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12  col-xlg-4">
+                                    <div class="fl fw item-block-box">
+                                        <strong>TECHNOLOGY</strong>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/azure.svg" /> Azure IoT Suite
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/plc.svg" /> Control Systems
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="fl fw all-Pages">
+        <section class="fl fw section-details tac">
+            <h1 class="fl fw tac">Expertise</h1>
+            <p class="dib fw">We are experts at business analytics for deploying and managing business intelligence and big data analytics
+                solutions leveraging the full benefits of current analytics technology, DataOps practices and cloud-enabled
+                platforms.
+            </p>
+
+            <ul class="fl fw ul-software-list">
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/analytics/bi-platform.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">BI Platform</a>
+                            <p class="db">BI platform to streamline data from internal & external sources to uncover and decipher patterns,
+                                relationships, trends and anomalies.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/analytics/bi-reporting-data-visualization.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                BI Reporting & Data Visualization</a>
+                            <p class="db">Organize and display data in easy-to-read charts, plots, graphs and intuitive maps for geographic
+                                intelligence making it easier for users to develop insights.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/analytics/self-service-collaborative-bi.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Self-Service & Collaborative BI</a>
+                            <p class="db">Empower users to generate their own reports, run their own queries, conduct their own analyses,
+                                share insights and collaborate with others.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/analytics/big-data-platform.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Big Data Platform</a>
+                            <p class="db">High performance big data platform to streamline ingestion and processing of big data for machine
+                                learning, advanced analytics and building intelligent apps & services.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/analytics/machine-learning-predictive-analytics.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Machine Learning & Predictive Analytics
+                            </a>
+                            <p class="db">Employ machine learning to build and deploy predictive models as analytics solutions for intelligent
+                                apps and insights.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/analytics/enterprise-data-management-platform.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Enterprise Data Management Platform</a>
+                            <p class="db">EDM platform to integrate, cleanse, remediate and master data for more mature downstream BI and
+                                Analytics.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="fl fw section-services">
+            <div class="container">
+                <div class="fl fw section-wrapper">
+                    <h2 class="fl fw tac heading">Services</h2>
+                    <p class="dib fw tac m0 p15 pt0">We provide Business Analytics for enterprises to leverage business intelligence and big data analytics
+                        – platform design, development & implementation and DataOps services for operations management and
+                        support.</p>
+
+                    <ul class="fl fw ul-software-list">
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Business Intelligence</a>
+                                    <p class="db">BI platform implementation to support reporting & visualization with portals and interactive
+                                        dashboards, and collaborative self-service solutions.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Enterprise Data Management</a>
+                                    <p class="db">EDM platform implementation to support mature data management practices including data
+                                        architecture, integration, modeling, quality, remediation, master data management,
+                                        warehousing and governance.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Big Data Analytics</a>
+                                    <p class="db">Big data platform implementation to support big data ingestion, storage, processing,
+                                        intelligent analytics (including predictive), for business intelligence, intelligent
+                                        apps, and automated systems.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">DataOps Services</a>
+                                    <p class="db">DataOps for BI, big data, enterprise data management and database platforms - administration,
+                                        release management, configuration management, corrective and adaptive management,
+                                        maintenance & support.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="fl fw section-service-tech">
+            <div class="container">
+                <div class="fl fw section-wrapper tac">
+                    <h2 class="fl fw heading">Technology</h2>
+                    <p class="dib fw m0 p15">We can build Business Analytics solutions with a host of technologies, you choose your preferred technologies or let us select the best-fit technology based on your business needs.</p>
+                    <div class="fl fw tac service-tech-items p15">
+                        <div class="dib">
+                            <img src="./public/images/analytics/azure-cortana.svg" />
+                            <span class="db">Azure Cortana</span>
+                        </div>
+                        <div class="dib">
+                            <img src="./public/images/analytics/apache-big-data.svg" />
+                            <span class="db">Apache Big Data</span>
+                        </div>
+                        <div class="dib">
+                            <img src="./public/images/analytics/power-bi.svg" />
+                            <span class="db">Power BI</span>
+                        </div>
+                        <div class="dib">
+                            <img src="./public/images/analytics/tableau.svg" />
+                            <span class="db">Tableau</span>
+                        </div>
+                        <div class="dib">
+                            <img src="./public/images/analytics/logi-analytics.svg" />
+                            <span class="db">Logi Analytics</span>
+                        </div>
+                        <div class="dib">
+                            <img src="./public/images/analytics/looker.svg" />
+                            <span class="db">Looker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="fl fw">
+        <div class="container">
+            <div class="fl fw footer-wrapper">
+                <div class="fr tar">
+                    <a href="/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                </div>
+                <div class="fr tac">
+                    <a href="/">Locations</a>
+                    <a href="/">Careers</a>
+                    <a href="/">Sitemap</a>
+                    <a href="/">Terms of Use Disclaimer</a>
+                </div>
+                <div class="fr tal">
+                    Copyright © 2017 Silicus Technologies, LLC
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./public/scripts/common.js"></script>
+</div>
+
+</html>

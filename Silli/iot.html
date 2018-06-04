@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Demo Website</title>
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="./public/styles/igo/cloudfirststyles.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+</body>
+<div class="wrapper">
+    <header class="fl fw">
+        <div class="fl fw header-top-wrapper">
+            <div class="container">
+                <div class="fl fw header-inner-wrapper">
+                    <div class="dib vam header-top-left">
+                        <a href="/" class="aLogo dib vam"><strong>LOGO</strong></a>
+                    </div>
+                    <div class="dib vam header-top-right">
+                        <ul class="dib vam fw right-items">
+                            <li>
+                                <a href="/" class="dib fw item-blocks">
+                                    <div class="dib vam items-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                    <div class="dib vam items-text">
+                                        <strong class="db">Call us</strong>
+                                        <span class="db">+123-456-789</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="dib fw item-blocks">
+                                    <div class="dib vam items-icon"><i class="fa fa-envelope-open" aria-hidden="true"></i></div>
+                                    <div class="dib vam items-text">
+                                        <strong class="db">Email</strong>
+                                        <span class="db">contact@example.com</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fl fw header-menu-wrapper">
+            <div class="container">
+                <div class="fl fw header-menu-inner">
+                    <div class="fl fw menu-heading">
+                        <a href="javascript:void(0)" onclick="toggleMenu(this)" class="menu-toggle">Menu <i class="fa fa-bars ml5" aria-hidden="true"></i></a>
+                    </div>
+                    <ul class="fl fw menu-list-items">
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'CloudFirst')">Cloud First</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'software')">Software</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'Analytics')">Analytics</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="openSubMenu(this, 'InternetOfThings')">Internet of Things</a>
+                        </li>
+                    </ul>
+                    <div id="menu-item-details" class="fl fw menu-item-details" style="display: none">
+                        <button class="fl fw btn-closeMenu" onclick="closeSubmenu()"><i class="fa fa-arrow-circle-left mr10" aria-hidden="true"></i> <strong>Back</strong></button>
+                        <div id="CloudFirst" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Software Driven Business</a>
+                                        <p class="db">Build software in the cloud to compete and stay ahead – by adding new revenue streams,
+                                            and meeting new business demands through industrialized software delivery at
+                                            digital speed.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Intelligent Analytics</a>
+                                        <p class="db">Drive intelligent business strategies with the cloud – to acquire, organize, and
+                                            analyze data across sources, size, velocity, and formats for customer engagement,
+                                            business performance, and smart automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">IoT Connected Enterprise</a>
+                                        <p class="db">Leverage the cloud to monetize data from sensors and devices – for creating new revenue
+                                            streams, better asset management, smart monitoring, innovate connected experiences,
+                                            and intelligent processes automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Modern Infrastructure</a>
+                                        <p class="db">Become a nimble, business centric and modern IT organization with a “service delivery”
+                                            mindset, smartly leveraging the Cloud to drive better responsiveness and cost
+                                            efficiencies.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6">
+                                    <div class="fl fw item-block-box">
+                                        <a href="/" class="db">Smart Digital Workplace</a>
+                                        <p class="db">Create an empowered workforce with cloud business apps to enable a collaborative
+                                            and secure workplace, delivered across locations & devices, and maximize productivity
+                                            and innovation.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="software" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12">
+                                    <div class="fl fw item-block-box">
+                                        <strong class="db">Overview</strong>
+                                        <p class="db">Deliver software that enables competitive advantage for enterprises – to add new
+                                            revenue streams, and meet new business demands through industrialized software
+                                            delivery at digital speed. </p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6 col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>SERVICES</strong>
+                                        <a href="/" class="db">Development</a>
+                                        <a href="/" class="db">UX / UI</a>
+                                        <a href="/" class="db">Testing</a>
+                                        <a href="/" class="db">DevOps</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6 col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>EXPERTISE</strong>
+                                        <a href="/" class="db">SaaS Solutions</a>
+                                        <a href="/" class="db">Mobile Apps</a>
+                                        <a href="/" class="db">Software Products</a>
+                                        <a href="/" class="db">Custom Software</a>
+                                        <a href="/" class="db">Intelligent Apps</a>
+                                        <a href="/" class="db">XaaS Solutions</a>
+                                        <a href="/" class="db">Online Platforms</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-xlg-6">
+                                    <div class="fl fw item-block-box">
+                                        <strong>TECHNOLOGY</strong>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/azure.svg" />
+                                            <em>Azure PaaS</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/microsoft.net.svg" />
+                                            <em>.NET</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/java.svg" />
+                                            <em>Java</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/mobile.svg" />
+                                            <em>Mobile</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/cpp.svg" />
+                                            <em>C++</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/javascript.svg" />
+                                            <em>JavaScript</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/python.svg" />
+                                            <em>Python</em>
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/ruby-on-rails.svg" />
+                                            <em>Ruby on Rails</em>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="Analytics" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12 col-lg-6 col-xlg-4">
+                                    <div class="fl fw item-block-box">
+                                        <strong class="db">Overview</strong>
+                                        <p class="db">Deliver analytics solutions that drive intelligent business strategies by analyzing
+                                            data to develop actionable insights for improving customer engagement, business
+                                            performance, and enable smart automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6  col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>SERVICES</strong>
+                                        <a href="/" class="db">Business Intelligence</a>
+                                        <a href="/" class="db">Big Data Analytics</a>
+                                        <a href="/" class="db">Enterprise Data Management</a>
+                                        <a href="/" class="db">DataOps</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12  col-xlg-5">
+                                    <div class="fl fw item-block-box">
+                                        <strong>TECHNOLOGY</strong>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/azure.svg" /> Azure Cortana
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/apache-big-data.svg" /> Apache Big Data
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/power-bi.svg" /> PowerBI
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/sql.svg" /> SQL
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/tableau.svg" /> Tableau
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/logi.svg" /> Logi
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/looker.svg" /> Looker
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="InternetOfThings" style="display: none" class="fl fw menu-detail-box">
+                            <ul class="fl fw">
+                                <li class="col-xs-12 col-lg-6 col-xlg-5">
+                                    <div class="fl fw item-block-box">
+                                        <strong class="db">Overview</strong>
+                                        <p class="db">Deliver IoT solutions that drive new revenue streams, better asset management, smart
+                                            monitoring, innovate connected experiences, and intelligent processes automation.</p>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12 col-lg-6 col-xlg-3">
+                                    <div class="fl fw item-block-box">
+                                        <strong>SERVICES</strong>
+                                        <a href="/" class="db">Connected Platform</a>
+                                        <a href="/" class="db">Stream Processing</a>
+                                        <a href="/" class="db">Analytics</a>
+                                        <a href="/" class="db">Intelligent IoT Systems</a>
+                                    </div>
+                                </li>
+                                <li class="col-xs-12  col-xlg-4">
+                                    <div class="fl fw item-block-box">
+                                        <strong>TECHNOLOGY</strong>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/azure.svg" /> Azure IoT Suite
+                                        </span>
+                                        <span class="db tech-item">
+                                            <img src="./public/images/svgs/plc.svg" /> Control Systems
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="fl fw all-Pages">
+        <section class="fl fw section-details tac">
+            <h1 class="fl fw tac">IoT Expertise</h1>
+            <p class="dib fw">We bring industry and domain expertise across a wide range of use cases that IoT driven solutions can address,
+                within homes, buildings, enterprises and industrial manufacturing environments.
+            </p>
+
+            <ul class="fl fw ul-software-list">
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/iot/data-monetization.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">Data Monetization</a>
+                            <p class="db">Apply cognitive computing to IoT data to create opportunities for driving new business models
+                                and revenue streams, expand into market adjacencies, and realize operational efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/iot/asset-management-optimization.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Asset Management & Optimization
+                            </a>
+                            <p class="db">Distill insights from IoT connected sensors & devices to add intelligence and real-time alerts
+                                that focus maintenance efforts towards deriving greater value from your assets.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/iot/connected-products-experiences.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Connected Products and Experiences</a>
+                            <p class="db">Transcend traditional product boundaries with IoT connected smart products and solutions that
+                                can sense and respond to user needs, taking the user experience to a whole new level.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/iot/process-automation.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Process Automation
+                            </a>
+                            <p class="db">Enrich traditional PLC & DCS driven control systems with Industrial IoT (IIoT) for real time
+                                data and advanced analytics that leads to smarter and more automated manufacturing.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="fl fw software-list-item">
+                        <div class="dib soft-icon">
+                            <img src="./public/images/iot/smart-monitoring.svg" />
+                        </div>
+                        <div class="dib soft-text-details">
+                            <a href="/" class="db">
+                                Smart Monitoring
+                            </a>
+                            <p class="db">Build IoT enabled monitoring solutions across use cases with connected sensors and devices for
+                                responsiveness and efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="fl fw section-services">
+            <div class="container">
+                <div class="fl fw section-wrapper">
+                    <h2 class="fl fw tac heading">Services</h2>
+                    <p class="dib fw tac m0 p15 pt0">We offer end to end expertise in IoT, including IoT platform design and development, data ingestion,
+                        storage and processing, and building cutting edge applications that bring IoT insights and intelligence
+                        to enterprises and their business offerings.
+                    </p>
+
+                    <ul class="fl fw ul-software-list">
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Connected Platform</a>
+                                    <p class="db">Build secure, scalable and flexible connected IoT platforms to deploy and manage connected
+                                        products, systems and data driven applications.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Stream Processing</a>
+                                    <p class="db">Design and implement massively parallel real-time processing & analytics for IoT data
+                                        streams that deliver actions and alerts in near real time.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Analytics</a>
+                                    <p class="db">Ingest and process large IoT generated data, build & leverage advanced analytics for
+                                        anomaly and pattern detection, outcome prediction and prescriptive actions to drive
+                                        intelligence & automation.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fl fw software-list-item">
+                                <div class="dib soft-text-details">
+                                    <a href="/" class="db">Intelligent IoT Systems</a>
+                                    <p class="db">Build intelligent IoT systems that act on IoT data streams and analytics outcomes, for
+                                        exceptionally intelligent operations & interactions.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="fl fw section-service-tech">
+            <div class="container">
+                <div class="fl fw section-wrapper tac">
+                    <h2 class="fl fw heading">Technology</h2>
+                    <p class="dib fw m0 p15">We are experts at leveraging IoT connected sensors & devices, cloud based IoT platforms, application development, AI & machine learning and advanced analytics to create innovative products and solutions.
+                        </p>
+                    <div class="fl fw tac service-tech-items p15">
+                        <div class="dib">
+                            <img src="./public/images/iot/azure-iot-suite.svg" />
+                            <span class="db">Azure IoT Suite</span>
+                        </div>
+                        <div class="dib">
+                            <img src="./public/images/iot/control-systems.svg" />
+                            <span class="db">Control Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="fl fw">
+        <div class="container">
+            <div class="fl fw footer-wrapper">
+                <div class="fr tar">
+                    <a href="/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="/"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                </div>
+                <div class="fr tac">
+                    <a href="/">Locations</a>
+                    <a href="/">Careers</a>
+                    <a href="/">Sitemap</a>
+                    <a href="/">Terms of Use Disclaimer</a>
+                </div>
+                <div class="fr tal">
+                    Copyright © 2017 Silicus Technologies, LLC
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./public/scripts/common.js"></script>
+</div>
+
+</html>

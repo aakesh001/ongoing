@@ -1,0 +1,291 @@
+body{
+	background-color: $body-bg;
+	margin: 0;
+}
+
+.header-top-wrapper{
+	background-color: $header-top-bg;
+}
+
+.right-items{
+	margin: 0;
+	padding: 0;
+
+	li{
+		display: inline-block;
+		position: relative;
+	}
+}
+
+.aLogo{
+	padding: 20px 10px;
+	font-size: 1.5em;
+	color: $main-color;
+}
+
+.item-blocks{
+	color: #656565;
+
+	i{
+		font-size: 1.5em;
+	}
+
+	// strong{
+	// 	margin: 5px 0;
+	// }
+
+	span{
+		font-size: 0.9em;
+		white-space: nowrap;
+	}
+}
+
+.header-top-right{
+	margin-bottom: 10px;
+}
+
+.header-menu-wrapper{
+	background-color: $header-menu-bg;
+	border-bottom: 1px solid darken($header-menu-bg, 10%);
+}
+
+.header-menu-inner{
+	ul{
+		margin: 0;
+		padding: 0;
+	}
+
+	li{
+		display: inline-block;
+		position: relative;
+		
+	}
+
+	a{
+		color: #fff;
+		padding: 20px;
+		display: inline-block;
+		position: relative;
+		width: 100%;
+	}
+}
+
+.menu-list-items{
+	display: none
+}
+
+
+footer{
+	padding: 20px 0;
+	background-color: #111E24;
+	color: #fff;
+
+	a{
+		margin: 0 5px;
+		color: #fff;
+	}
+}
+
+.footer-wrapper{
+	& > div{
+		width: 100%;
+	}
+
+	.tal{
+		color: #84848a;
+	}
+}
+
+.menu-item-details{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-color: #fff;
+	padding-top: 40px;
+}
+
+.menu-detail-box{
+	padding: 15px;
+	height: 100%;
+	overflow: auto;
+
+	ul{
+		margin: 0;
+		padding: 0 0 0 15px;
+	}
+
+	li{
+		margin-bottom: 20px;
+		vertical-align: top;
+		margin: 0 -2px;
+		float: none;
+		padding: 15px 15px 15px 0;
+	}
+}
+
+.btn-closeMenu{
+	height: 40px;
+	border: 0;
+	padding: 0 10px;
+	margin: 0;
+	text-align: left;
+	font-size: 1em;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.item-block-box{
+	a{
+		color: $main-color;
+		padding: 0;
+		text-decoration: underline;
+	}
+	
+	p{
+		margin: 10px 0 0 0;
+	}
+}
+
+.tech-item{
+	img {
+		vertical-align: middle;
+		max-width: 50px;
+		height: 50px;
+	}
+
+	em{
+		font-style: normal;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+@media only screen and (max-width:767px){
+	.item-blocks {
+		& > div{
+			width: 100%;
+		}
+
+		strong{
+			margin: 5px 0;
+		}
+	}
+
+	.header-top-wrapper{
+		.header-top-left,
+		.header-top-right{
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	.right-items{
+		li{
+			width: 50%;
+			float: left;
+		}
+	}
+
+	.header-menu-inner li{
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width:768px){
+	.menu-list-items {
+		text-align: center;
+		a{
+			margin: 0 20px;
+	
+			&.active{
+				font-weight: bold;
+				color:$main-color;
+			}
+		}
+	}
+
+	.item-blocks {
+		text-align: left;
+	}
+
+	.items-text{
+		@include cal(width, 40px);
+		margin-left: 10px;
+	}
+
+	.header-inner-wrapper{
+		display: flex;
+		justify-content: space-between;
+
+		& > div{
+			align-self: center;
+		}
+	}
+
+	.right-items li {
+		margin: 0 20px;
+	}
+
+	.menu-heading{
+		display: none !important;
+	}
+	.menu-list-items{
+		display: inline-block !important;
+	}
+	
+	.btn-closeMenu{
+		display: none;
+	}
+	.menu-item-details{
+		position: absolute;
+		padding: 0;
+		top: 100%;
+	}
+	.menu-detail-box{
+		height: auto;
+		background: #fff;
+		overflow: visible;
+		box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.5);
+		@include radius(0 0 10px 10px);
+	}
+
+	.item-block-box{
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 10px;
+		}
+		strong{
+			display: block;
+		}
+	}
+}
+
+@media only screen and (max-width:989px){
+	.footer-wrapper{
+		& > div{
+			text-align: center;
+		}
+
+		.tac{
+			margin: 10px 0;
+		}
+
+		.tal{
+			font-size: 0.8em;
+		}
+	}
+}
+
+
+@media only screen and (min-width:990px){
+	.footer-wrapper{
+		& > div{
+			width: 33.33%;
+		}
+	}
+}

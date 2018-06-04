@@ -1,0 +1,282 @@
+.section-details{
+    padding-bottom: 20px;
+    
+    p{
+        max-width: 900px;
+    }
+}
+
+.ul-treading-list{
+    margin: 0 0 20px 0;
+    padding: 0;
+    text-align: center;
+
+    li{
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+
+        &:nth-child(n+2){
+            margin-top: 30px;
+        }
+    }
+
+    span{
+        background-color: #fff;
+        padding: 15px;
+        border: 4px solid $main-color;
+        max-width: 250px;
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 5px;
+        background-color: $main-color;
+        margin: auto;
+    }
+}
+
+.ul-trending-feature{
+    padding: 0 0 0 15px;
+
+    li{
+        padding: 15px 15px 15px 0;
+        display: inline-block;
+        vertical-align: top;
+        width: 150px;
+    }
+
+    span{
+        font-size: 0.8em;
+    }
+}
+
+.feature-item{
+    img{
+        height: 50px;
+    }
+}
+
+.section-Technology, .section-services{
+    background-color: #fff;
+    border-color: darken(#F5F5F5, 10%);
+    border-style: solid;
+    border-width: 1px 0;
+}
+
+.tech-List{
+    padding: 0 15px;
+}
+
+.tech-list-block{
+    padding-bottom: 15px;
+    
+    a{
+        color: $main-color;
+        font-weight: bold;
+    }
+}
+
+.strategy-list{
+    padding: 0 15px 15px 15px;
+}
+
+.strategy-block{
+    width: 100%;
+    max-width: 300px;
+    padding-top: 25px;
+
+    img{
+        max-width: 150px;
+        margin-top: 15px;
+    }
+}
+
+// Software
+
+.ul-software-list{
+    margin: 0;
+    padding: 0 0 0 15px;
+
+    li{
+        float: left;
+        position: relative;
+        padding: 15px 15px 15px 0;
+        display: block;
+    }
+}
+
+.software-list-item{
+    .soft-icon{
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+        padding: 20px;
+
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .soft-text-details{
+        @include cal(width,110px);
+        text-align: left;
+        padding: 10px 0 10px 10px;
+        line-height: 1.5;
+        vertical-align: middle;
+
+        a{
+            color: $main-color;
+            font-weight: bold;
+        }
+
+        p{
+            margin: 0;
+        }
+    }
+}
+
+.section-services{
+    li{
+        float: none;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 -2px;
+    }
+}
+
+.service-tech-items{
+    & > div{
+        margin: 20px;
+
+        img{
+            height: 80px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+@media only screen and (max-width:602px){
+    .ul-treading-list li{
+        display: block;
+    }
+}
+
+@media only screen and (max-width:767px){
+    .ul-software-list{
+        li{
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width:768px){
+    .tech-list-block{
+        .img-details{
+            width: 300px;
+
+            &.fl{
+                padding-right: 15px;
+            }
+            &.fr{
+                padding-left: 15px;
+            }
+        }
+        .text-details{
+            @include cal(width,300px);
+        }
+    }
+
+    .ul-software-list{
+        li{
+            width: 50%;
+        }
+    }
+}
+
+@media only screen and (min-width:990px){
+    .tech-list-block{
+        .img-details{
+            width: 400px;
+        }
+        .text-details{
+            @include cal(width,400px);
+            line-height: 1.5;
+        }
+    }
+}
+
+@media only screen and (min-width:603px) and (max-width:1199px){
+    .ul-treading-list li{
+        padding: 0 20px;
+        margin-top: 30px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 5px;
+            background-color: $main-color;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        @media only screen and (max-width:989px){
+            &:nth-child(2n):before{
+                left: 0;
+                right: auto;
+            }
+    
+            &:last-child:before{
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width:990px){
+            &:nth-child(3),&:last-child{
+                &:before{
+                    display: none;
+                }
+            }
+    
+            &:before {
+                width: 20%;
+                height: 5px;
+                right: -30px;
+            }
+        }
+
+    }
+}
+
+@media only screen and (min-width:1200px){
+    .ul-treading-list {
+
+        &:before{
+            height: 5px;
+            width: 80%;
+            top: 0;
+            bottom: 0;
+        }
+
+        li{
+            width: 20%;
+            padding: 0 20px;
+            margin: 0 -2px;
+
+            &:nth-child(n+2){
+                margin-top: 0;
+            }
+        }
+    }
+}

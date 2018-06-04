@@ -1,0 +1,72 @@
+$white:			  #FFF !default;	
+$offwhite:		  darken($white,5%) !default; // #f2f2f2
+$black:           #000 !default;
+$gray-darker:     lighten($black, 13.5%) !default; // #222
+$gray-dark:       lighten($black, 20%) !default;   // #333
+$gray:            lighten($black, 33.5%) !default; // #555
+$gray-light:      lighten($black, 46.7%) !default; // #777
+$gray-light70:      lighten($black, 70%) !default; // #777
+$gray-lighter:    lighten($black, 93.5%) !default; // #eee
+
+$success:         #5cb85c !default;
+$info:            #5bc0de !default;
+$warning:         #f0ad4e !default;
+$danger:          #ff0000 !default;
+
+//isango main colors
+$brand1:         #85b100 !default;
+$brand2:         #1e9cb5 !default;
+$brand3:         #cf1069 !default;
+$brand4:         #0c4594 !default;
+$brand5:         #f94008 !default;
+$brand6: 		 #ee8787 !default;
+$bodyBG:		 #f4f4f4 !default;
+$text-color:	 #323c3e !default;
+
+$font-brand:		'Raleway', sans-serif;;
+
+$font-base:       15px;
+$font-lg:         ceil(($font-base * 1.5)) !default; // ~24px
+$font-md:         ceil(($font-base * 1.25)) !default; // ~18px
+$font-sm:         ceil(($font-base * 1.1)) !default; // ~18px
+$font-xs:         ceil(($font-base * 0.85)) !default; // ~12px
+
+$btn-bg: 		$brand5;
+$btn-cta:		$brand5;
+
+$twit:#25ABDE;
+
+$limit-screen:1440px;
+
+$grid:12;
+$xxs-screen:320px;
+$iphone6:375px;
+$iphone6s:414px;
+$xs-screen:480px;
+$sm-screen:603px;
+$md-screen:768px;
+$lg-screen:990px;
+$xlg-screen:1200px;
+$xxs-screen-max:$xs-screen - 1;
+$xs-screen-max:$sm-screen - 1;
+$sm-screen-max:$md-screen - 1;
+$md-screen-max:$lg-screen - 1;
+$lg-screen-max:$xlg-screen - 1;
+$iphone6-max:  $iphone6s - 1;
+
+$font:14px;
+
+// Website Variables
+
+$main-color : #006FAF;
+
+$body-bg : #F5F5F5;
+$header-top-bg : #fff;
+$header-menu-bg : #02202f;
+
+// homepage
+
+$banner-url : url(../../../public/images/banner.jpg);
+$services-section-bg : url(../../../public/images/mainBackground.jpg);
+$testimonial-section-bg : url(../../../public/images/bottom-contact-bg.jpg);
+$section-treading-bg : url(../../../public/images/section-bg.jpg);
